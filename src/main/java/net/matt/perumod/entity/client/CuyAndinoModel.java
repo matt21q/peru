@@ -2,11 +2,10 @@ package net.matt.perumod.entity.client;// Made with Blockbench 4.12.3
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
-
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.matt.perumod.entity.animation.ModAnimationsDefinitions;
-import net.matt.perumod.entity.custom.CuyPeruEntity;
+import net.matt.perumod.entity.custom.CuyAndinoEntity;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -16,9 +15,7 @@ import net.minecraft.world.entity.Entity;
 
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-
-
-public class CuyPeruanoModel<T extends Entity> extends HierarchicalModel<T> {
+public class CuyAndinoModel<T extends Entity> extends HierarchicalModel<T> {
 
 	private final ModelPart all;
 	private final ModelPart left_ear;
@@ -29,7 +26,7 @@ public class CuyPeruanoModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart right_leg2;
 	private final ModelPart eyes;
 
-	public CuyPeruanoModel(ModelPart root) {
+	public CuyAndinoModel(ModelPart root) {
 		this.all = root.getChild("all");
 		this.left_ear = this.all.getChild("left_ear");
 		this.right_ear = this.all.getChild("right_ear");
@@ -64,13 +61,12 @@ public class CuyPeruanoModel<T extends Entity> extends HierarchicalModel<T> {
 	}
 
 	@Override
-	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 
 		this.animateWalk(ModAnimationsDefinitions.WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((CuyPeruEntity) entity).idleAnimationState, ModAnimationsDefinitions.IDLE, ageInTicks, 1f);
+		this.animate(((CuyAndinoEntity) entity).idleAnimationState, ModAnimationsDefinitions.IDLE, ageInTicks, 1f);
 	}
-
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {

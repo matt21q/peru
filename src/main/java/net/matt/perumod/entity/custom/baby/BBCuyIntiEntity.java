@@ -1,9 +1,13 @@
-package net.matt.perumod.entity.custom;
+package net.matt.perumod.entity.custom.baby;
 
 import net.matt.perumod.entity.ModEntities;
+import net.matt.perumod.entity.custom.CuyAndinoEntity;
+import net.matt.perumod.entity.custom.CuyIntiEntity;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
@@ -13,30 +17,80 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-public class CuyPeruEntity extends Animal {
+public class BBCuyIntiEntity extends Animal {
     private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.CARROT, Items.APPLE, Items.WHEAT, Items.SUNFLOWER);
-    public CuyPeruEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
+    private boolean isFed = false;
+    private AgeableMob parent;
+
+    public BBCuyIntiEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
+        this.setBaby(true);
     }
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
 
+    @Override
+    public InteractionResult mobInteract(Player player, InteractionHand hand) {
+        super.mobInteract(player, hand);
+
+        ItemStack itemStack = player.getItemInHand(hand);
+
+        if (isFood(itemStack)) {
+            this.isFed = true;
+            this.playSound(SoundEvents.GENERIC_EAT, 1.0F, 1.0F);
+            itemStack.shrink(1);
+            return InteractionResult.CONSUME;
+        }
+
+        return InteractionResult.PASS;
+    }
 
     @Override
     public void tick() {
         super.tick();
 
-        if(this.level().isClientSide()) {
+        if (this.level().isClientSide()) {
             setupAnimationStates();
         }
 
+        if (isFed && this.isBaby()) {
+            transformToAdult();
+        }
     }
+    public void setParent(AgeableMob parent) {
+        this.parent = parent;
+    }
+
+    public AgeableMob getParent() {
+        return this.parent;
+    }
+
+
+    private void transformToAdult() {
+
+        if (!this.isBaby()) {
+            return;
+        }
+
+        this.setBaby(false);
+
+
+        CuyIntiEntity adultEntity = ModEntities.CUY_INTI.get().create(this.level());
+        if (adultEntity != null) {
+            adultEntity.moveTo(this.position()); //
+            this.level().addFreshEntity(adultEntity);
+        }
+
+        this.remove(RemovalReason.DISCARDED);
+    }
+
     private void setupAnimationStates() {
         if(this.idleAnimationTimeout <= 0) {
             this.idleAnimationTimeout = this.random.nextInt(40) + 80;
@@ -63,12 +117,15 @@ public class CuyPeruEntity extends Animal {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new BreedGoal(this, 1.15D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.0D, FOOD_ITEMS, false));
-        this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.1D));
-        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
-
-
+        this.goalSelector.addGoal(1, new FollowParentGoal(this, 1.1D) {
+            @Override
+            public boolean canUse() {
+                return super.canUse() && getParent() instanceof CuyIntiEntity;
+            }
+        });
+        this.goalSelector.addGoal(2, new TemptGoal(this, 1.0D, FOOD_ITEMS, false));
+        this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.1D));
+        this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -81,7 +138,9 @@ public class CuyPeruEntity extends Animal {
 
     @Override
     public @Nullable AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return ModEntities.BB_CUY_PERUANO.get().create(level());
+        BBCuyIntiEntity offspring = new BBCuyIntiEntity(ModEntities.BB_CUY_INTI.get(), pLevel);
+        offspring.setParent(this);
+        return offspring;
     }
 
     @Override

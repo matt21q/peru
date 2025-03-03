@@ -19,9 +19,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-public class CuyPeruEntity extends Animal {
+public class CuyIntiEntity extends Animal {
     private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.CARROT, Items.APPLE, Items.WHEAT, Items.SUNFLOWER);
-    public CuyPeruEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
+    public CuyIntiEntity(EntityType<? extends Animal> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
     public final AnimationState idleAnimationState = new AnimationState();
@@ -65,6 +65,7 @@ public class CuyPeruEntity extends Animal {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new BreedGoal(this, 1.15D));
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.0D, FOOD_ITEMS, false));
+        this.goalSelector.addGoal(3, new FollowParentGoal(this, 1.1D));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.1D));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 
@@ -81,7 +82,7 @@ public class CuyPeruEntity extends Animal {
 
     @Override
     public @Nullable AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
-        return ModEntities.BB_CUY_PERUANO.get().create(level());
+        return ModEntities.BB_CUY_INTI.get().create(level());
     }
 
     @Override

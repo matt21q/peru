@@ -5,13 +5,9 @@ import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.animation.Keyframe;
 import net.minecraft.client.animation.KeyframeAnimations;
 
-public class ModAnimationsDefinitions {
+public class ModBBAnimationsDeifinitions {
 
     public static final AnimationDefinition IDLE = AnimationDefinition.Builder.withLength(2f).looping()
-            .addAnimation("left_ear",
-                    new AnimationChannel(AnimationChannel.Targets.POSITION,
-                            new Keyframe(0f, KeyframeAnimations.posVec(0.3f, 0f, 0f),
-                                    AnimationChannel.Interpolations.LINEAR)))
             .addAnimation("left_ear",
                     new AnimationChannel(AnimationChannel.Targets.ROTATION,
                             new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 70f),
@@ -20,10 +16,6 @@ public class ModAnimationsDefinitions {
                                     AnimationChannel.Interpolations.CATMULLROM),
                             new Keyframe(2f, KeyframeAnimations.degreeVec(0f, 0f, 70f),
                                     AnimationChannel.Interpolations.CATMULLROM)))
-            .addAnimation("right_ear",
-                    new AnimationChannel(AnimationChannel.Targets.POSITION,
-                            new Keyframe(0f, KeyframeAnimations.posVec(-0.2f, 0f, 0f),
-                                    AnimationChannel.Interpolations.LINEAR)))
             .addAnimation("right_ear",
                     new AnimationChannel(AnimationChannel.Targets.ROTATION,
                             new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, -62.5f),
@@ -140,17 +132,9 @@ public class ModAnimationsDefinitions {
                             new Keyframe(0.625f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
                                     AnimationChannel.Interpolations.CATMULLROM)))
             .addAnimation("left_ear",
-                    new AnimationChannel(AnimationChannel.Targets.POSITION,
-                            new Keyframe(0f, KeyframeAnimations.posVec(0.3f, 0f, 0f),
-                                    AnimationChannel.Interpolations.LINEAR)))
-            .addAnimation("left_ear",
                     new AnimationChannel(AnimationChannel.Targets.ROTATION,
                             new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 70f),
                                     AnimationChannel.Interpolations.CATMULLROM)))
-            .addAnimation("right_ear",
-                    new AnimationChannel(AnimationChannel.Targets.POSITION,
-                            new Keyframe(0f, KeyframeAnimations.posVec(-0.2f, 0f, 0f),
-                                    AnimationChannel.Interpolations.LINEAR)))
             .addAnimation("right_ear",
                     new AnimationChannel(AnimationChannel.Targets.ROTATION,
                             new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, -62.5f),

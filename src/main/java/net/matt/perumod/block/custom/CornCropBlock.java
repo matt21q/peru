@@ -21,7 +21,7 @@ import net.minecraftforge.common.IPlantable;
 
 
 public class CornCropBlock extends CropBlock{
-    public static final int FIRST_STAGE_MAX_AGE = 5;
+    public static final int FIRST_STAGE_MAX_AGE = 7;
     public static final int SECOND_STAGE_MAX_AGE = 1;
 
     private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
@@ -31,9 +31,11 @@ public class CornCropBlock extends CropBlock{
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D),
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D),
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D),
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)};
 
-    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 6);
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 8);
 
     public CornCropBlock(Properties pProperties) {
         super(pProperties);
