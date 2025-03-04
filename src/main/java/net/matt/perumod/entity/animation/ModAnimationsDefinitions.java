@@ -9,10 +9,6 @@ public class ModAnimationsDefinitions {
 
     public static final AnimationDefinition IDLE = AnimationDefinition.Builder.withLength(2f).looping()
             .addAnimation("left_ear",
-                    new AnimationChannel(AnimationChannel.Targets.POSITION,
-                            new Keyframe(0f, KeyframeAnimations.posVec(0.3f, 0f, 0f),
-                                    AnimationChannel.Interpolations.LINEAR)))
-            .addAnimation("left_ear",
                     new AnimationChannel(AnimationChannel.Targets.ROTATION,
                             new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 70f),
                                     AnimationChannel.Interpolations.CATMULLROM),
@@ -140,10 +136,6 @@ public class ModAnimationsDefinitions {
                             new Keyframe(0.625f, KeyframeAnimations.degreeVec(0f, 0f, 0f),
                                     AnimationChannel.Interpolations.CATMULLROM)))
             .addAnimation("left_ear",
-                    new AnimationChannel(AnimationChannel.Targets.POSITION,
-                            new Keyframe(0f, KeyframeAnimations.posVec(0.3f, 0f, 0f),
-                                    AnimationChannel.Interpolations.LINEAR)))
-            .addAnimation("left_ear",
                     new AnimationChannel(AnimationChannel.Targets.ROTATION,
                             new Keyframe(0f, KeyframeAnimations.degreeVec(0f, 0f, 70f),
                                     AnimationChannel.Interpolations.CATMULLROM)))
@@ -243,4 +235,5 @@ public class ModAnimationsDefinitions {
                     new AnimationChannel(AnimationChannel.Targets.SCALE,
                             new Keyframe(0f, KeyframeAnimations.scaleVec(1f, 1f, 1f),
                                     AnimationChannel.Interpolations.LINEAR))).build();
+
 }
