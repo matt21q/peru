@@ -1,0 +1,38 @@
+{
+  "parent": "perusdelight:main/root",
+  "criteria": {
+    "ceviche": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "perusdelight:ceviche"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "perusdelight.advancement.get_ceviche.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "perusdelight:ceviche"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "perusdelight.advancement.get_ceviche"
+    }
+  },
+  "requirements": [
+    [
+      "ceviche"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

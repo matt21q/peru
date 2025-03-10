@@ -20,14 +20,6 @@ public class FriedCuyBlock extends FeastBlock {
             BooleanOp.OR);
 
 
-
-
-
-
-
-
-
-
     public FriedCuyBlock(Properties properties, Supplier<Item> servingItem, boolean hasLeftovers) {
         super(properties, servingItem, hasLeftovers);
     }

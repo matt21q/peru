@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "perusdelight:block/lemon_tree_pressure_plate"
+    },
+    "powered=true": {
+      "model": "perusdelight:block/lemon_tree_pressure_plate_down"
+    }
+  }
+}

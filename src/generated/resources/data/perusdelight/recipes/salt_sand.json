@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": {
+      "item": "perusdelight:salt"
+    },
+    "X": {
+      "item": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    " S ",
+    "SXS",
+    " S "
+  ],
+  "result": {
+    "item": "perusdelight:salt_sand_ore"
+  },
+  "show_notification": true
+}

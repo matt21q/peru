@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:beach",
+  "features": "perusdelight:salt_sand_ore_placed",
+  "step": "underground_ores"
+}

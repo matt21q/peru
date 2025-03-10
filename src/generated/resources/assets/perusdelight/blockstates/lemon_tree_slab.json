@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "perusdelight:block/lemon_tree_slab"
+    },
+    "type=double": {
+      "model": "perusdelight:block/lemon_planks"
+    },
+    "type=top": {
+      "model": "perusdelight:block/lemon_tree_slab_top"
+    }
+  }
+}

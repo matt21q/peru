@@ -1,0 +1,9 @@
+// 1.20.1	2025-03-03T18:13:39.5063198	Tags for minecraft:block mod id perusdelight
+0109971817350c9161f8e62379e19b9e26ecb771 data/farmersdelight/tags/blocks/heat_sources.json
+4da615c879f5a5d529574d5eb72f2a6adabe0d23 data/farmersdelight/tags/blocks/mineable/knife.json
+dc292920b31cc6d4bb56800cbf6a41736227ccf4 data/minecraft/tags/blocks/logs_that_burn.json
+5e0efc941ef1ac2f08e12e4899d11bf5c706775d data/minecraft/tags/blocks/mineable/axe.json
+854d93714e45a356e9b6921e2448e5476232d64c data/minecraft/tags/blocks/mineable/hoe.json
+2ee1133351d849397372ee941c6805f9fe98f051 data/minecraft/tags/blocks/mineable/pickaxe.json
+1e8a7f2f51a370516c648ad7ff2c0d5b789a806b data/minecraft/tags/blocks/mineable/shovel.json
+2273f6cc573b644059cf77a867eb766167276ca7 data/minecraft/tags/blocks/planks.json

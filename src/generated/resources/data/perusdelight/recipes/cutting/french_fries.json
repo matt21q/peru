@@ -1,0 +1,21 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "minecraft:baked_potato"
+    }
+  ],
+  "result": [
+    {
+      "count": 4,
+      "item": "perusdelight:french_fries"
+    },
+    {
+      "chance": 0.25,
+      "item": "perusdelight:french_fries"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "side": "perusdelight:block/mud_stove_side",
+    "front": "perusdelight:block/mud_stove_front",
+    "bottom": "perusdelight:block/mud_stove_bottom",
+    "top": "perusdelight:block/mud_stove_top"
+  }
+}

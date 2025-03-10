@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "perusdelight:block/corn_crop0"
+    },
+    "age=1": {
+      "model": "perusdelight:block/corn_crop1"
+    },
+    "age=2": {
+      "model": "perusdelight:block/corn_crop2"
+    },
+    "age=3": {
+      "model": "perusdelight:block/corn_crop3"
+    },
+    "age=4": {
+      "model": "perusdelight:block/corn_crop4"
+    },
+    "age=5": {
+      "model": "perusdelight:block/corn_crop5"
+    },
+    "age=6": {
+      "model": "perusdelight:block/corn_crop6"
+    },
+    "age=7": {
+      "model": "perusdelight:block/corn_crop7"
+    },
+    "age=8": {
+      "model": "perusdelight:block/corn_crop8"
+    }
+  }
+}

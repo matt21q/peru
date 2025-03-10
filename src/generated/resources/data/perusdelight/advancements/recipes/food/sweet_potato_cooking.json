@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "perusdelight:sweet_potato_cooking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "sweet_potato": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "perusdelight:sweet_potato"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "sweet_potato",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "perusdelight:sweet_potato_cooking"
+    ]
+  },
+  "sends_telemetry_event": false
+}

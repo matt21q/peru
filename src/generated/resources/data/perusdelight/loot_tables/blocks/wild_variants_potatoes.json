@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "perusdelight:black_potato"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perusdelight:canchan_potato"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "perusdelight:peruvian_potato"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potato"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "perusdelight:blocks/wild_variants_potatoes"
+}

@@ -1,0 +1,32 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "perusdelight:baked_sweet_potato"
+    },
+    {
+      "tag": "perusdelight:fish_ceviche"
+    },
+    {
+      "item": "perusdelight:lemon_slice"
+    },
+    {
+      "item": "perusdelight:purple_onion"
+    },
+    {
+      "item": "perusdelight:corn_kernels"
+    },
+    {
+      "item": "perusdelight:salt"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "perusdelight:ceviche"
+  }
+}

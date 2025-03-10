@@ -1,0 +1,37 @@
+[09mar.2025 14:50:51.476] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\Users\Intel\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.3.0, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, perusdelight, --all, --output, M:\perusdelight\src\generated\resources, --existing, M:\perusdelight\src\main\resources]
+[09mar.2025 14:50:51.484] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.12 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[09mar.2025 14:50:51.613] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[09mar.2025 14:50:51.672] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/Intel/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[09mar.2025 14:50:52.007] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Intel\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.3.0\d7ebc62120f202109e300e084ca1a31a7b946a62\javafmllanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[09mar.2025 14:50:52.011] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Intel\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.3.0\1bf3e845ea0ce750096da8c71c8364b188ab74d4\lowcodelanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[09mar.2025 14:50:52.016] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Intel\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.3.0\6093682e943ddccbabf70539319d7f2fe64db2e7\mclanguage-1.20.1-47.3.0.jar is missing mods.toml file
+[09mar.2025 14:50:52.021] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\Intel\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.3.0\3b6be96aba3e323f3c918e8ef6a96312d82d76ad\fmlcore-1.20.1-47.3.0.jar is missing mods.toml file
+[09mar.2025 14:50:52.129] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[09mar.2025 14:50:53.876] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[09mar.2025 14:50:53.880] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\Users\Intel\.gradle\caches\forge_gradle\assets, --assetIndex, 5, --mod, perusdelight, --all, --output, M:\perusdelight\src\generated\resources, --existing, M:\perusdelight\src\main\resources]
+[09mar.2025 14:50:54.246] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using M:\perusdelight\build\createSrgToMcp\output.srg
+[09mar.2025 14:50:54.628] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [perusdelight]
+[09mar.2025 14:50:59.362] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.3.0, for MC 1.20.1 with MCP 20230612.114412
+[09mar.2025 14:50:59.363] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.3.0 Initialized
+[09mar.2025 14:50:59.603] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[09mar.2025 14:50:59.609] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 4.247 ms
+[09mar.2025 14:51:00.046] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Intel/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[09mar.2025 14:51:00.047] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/Intel/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.3.0_mapped_parchment_2023.06.26-1.20.1/forge-1.20.1-47.3.0_mapped_parchment_2023.06.26-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[09mar.2025 14:51:00.201] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[09mar.2025 14:51:00.256] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 54 ms
+[09mar.2025 14:51:00.256] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[09mar.2025 14:51:00.302] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 46 ms
+[09mar.2025 14:51:00.303] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: perusdelight
+[09mar.2025 14:51:00.464] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: perusdelight finished after 161 ms
+[09mar.2025 14:51:00.464] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: perusdelight
+[09mar.2025 14:51:00.484] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: perusdelight finished after 18 ms
+[09mar.2025 14:51:00.484] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Advancements
+[09mar.2025 14:51:00.499] [main/INFO] [net.minecraft.data.DataGenerator/]: Advancements finished after 14 ms
+[09mar.2025 14:51:00.499] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:block mod id perusdelight
+[09mar.2025 14:51:00.510] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:block mod id perusdelight finished after 10 ms
+[09mar.2025 14:51:00.510] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:item mod id perusdelight
+[09mar.2025 14:51:00.512] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:item mod id perusdelight finished after 1 ms
+[09mar.2025 14:51:00.512] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registries
+[09mar.2025 14:51:00.530] [main/INFO] [net.minecraft.data.DataGenerator/]: Registries finished after 17 ms
+[09mar.2025 14:51:00.530] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 329 ms
+[09mar.2025 14:51:00.538] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 190, old count: 190, new count: 191, removed stale: 0, written: 1
