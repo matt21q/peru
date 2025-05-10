@@ -19,7 +19,7 @@
     "description": {
       "translate": "perusdelight.advancement.get_ceviche.desc"
     },
-    "frame": "task",
+    "frame": "challenge",
     "hidden": false,
     "icon": {
       "item": "perusdelight:ceviche"

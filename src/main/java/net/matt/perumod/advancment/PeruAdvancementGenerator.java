@@ -28,10 +28,15 @@ public class PeruAdvancementGenerator implements ForgeAdvancementProvider.Advanc
                 .addCriterion("seeds", InventoryChangeTrigger.TriggerInstance.hasItems(new ItemLike[]{}))
                 .save(consumer, getNameId("main/root"));
 
-        Advancement nationalFood = getAdvancement(PerusDelight, ModItems.CEVICHE.get(), "get_ceviche", FrameType.TASK, true, true, false)
+        Advancement nationalFood = getAdvancement(PerusDelight, ModItems.CEVICHE.get(), "get_ceviche", FrameType.CHALLENGE, true, true, false)
                 .addCriterion("ceviche", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CEVICHE.get()))
                 .requirements(RequirementsStrategy.OR)
                 .save(consumer, getNameId("main/get_ceviche"));
+
+        Advancement Food = getAdvancement(PerusDelight, ModItems.LOMO_SALTADO.get(), "get_lomo_saltado", FrameType.TASK, true, true, false)
+                .addCriterion("lomo_saltado", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LOMO_SALTADO.get()))
+                .requirements(RequirementsStrategy.OR)
+                .save(consumer, getNameId("main/get_lomo_saltado"));
 
 
 

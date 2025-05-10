@@ -11,18 +11,22 @@ import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+
+import net.minecraft.world.level.levelgen.placement.*;
+
 
 import java.util.List;
 
 public class ModPlacedFeatures {
+
     public static final ResourceKey<PlacedFeature> SALT_ORE_PLACED_KEY = registerKey("salt_ore_placed");
     public static final ResourceKey<PlacedFeature> SALT_SAND_ORE_PLACED_KEY = registerKey("salt_sand_ore_placed");
+    public static final ResourceKey<PlacedFeature> WILD_VARIANTS_POTATOES_PLACED_KEY = registerKey("wild_variants_potatoes_placement");
+    public static final ResourceKey<PlacedFeature> WILD_PURPLE_ONIONS_PLACED_KEY = registerKey("wild_purple_onions_placement");
 
 
     public static final ResourceKey<PlacedFeature> LEMON_PLACED_KEY = registerKey("lemon_placed");
@@ -43,16 +47,17 @@ public class ModPlacedFeatures {
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(0, 0.1f, 1),
                         ModBlocks.LEMON_SAPLING.get()));
 
+        register(context, WILD_VARIANTS_POTATOES_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.WILD_VARIANTS_POTATOES),
+                List.of(new InSquarePlacement(),
+                        HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING),
+                        BiomeFilter.biome()));
+
+        register(context, WILD_PURPLE_ONIONS_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.WILD_PURPLE_ONIONS),
+                List.of(new InSquarePlacement(),
+                        HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING),
+                        BiomeFilter.biome()));
+
     }
-
-
-
-
-
-
-
-
-
 
 
 

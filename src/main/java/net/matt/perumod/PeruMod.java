@@ -9,6 +9,7 @@ import net.matt.perumod.entity.client.*;
 import net.matt.perumod.entity.client.baby.BBCuyAndinoRenderer;
 import net.matt.perumod.entity.client.baby.BBCuyIntiRenderer;
 import net.matt.perumod.entity.client.baby.BBCuyPeruRenderer;
+import net.matt.perumod.event.ModEventSubscriber;
 import net.matt.perumod.item.ModCreativeModTabs;
 import net.matt.perumod.item.ModItems;
 import net.matt.perumod.sound.ModSounds;
@@ -43,12 +44,16 @@ public class PeruMod
         ModCreativeModTabs.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+
         ModEffects.MOB_EFFECTS.register(modEventBus);
         ModBlockEntityTypes.TILES.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         ModSounds.register(modEventBus);
         ModEntities.ENTITY_TYPES.register(modEventBus);
         modEventBus.addListener(this::addCreative);
+
+        MinecraftForge.EVENT_BUS.register(ModEventSubscriber.class);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
@@ -65,6 +70,7 @@ public class PeruMod
     public void onServerStarting(ServerStartingEvent event)
     {
     }
+
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents

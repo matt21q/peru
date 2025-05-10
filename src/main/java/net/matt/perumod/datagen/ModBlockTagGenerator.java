@@ -24,7 +24,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.registerFarmersDelightTags();
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.SALT_ORE.get());
+                .add(ModBlocks.SALT_ORE.get())
+                .add(ModBlocks.CALAMINE.get());
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(ModBlocks.SALT_SAND_ORE.get());
         this.tag(BlockTags.MINEABLE_WITH_AXE)
@@ -54,5 +55,16 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     protected void registerBlockMineables() {
        tag(ModTags.MINEABLE_WITH_KNIFE)
                .add(ModBlocks.FRIED_CUY_BLOCK.get());
+    }
+    protected void registerMinecraftTags() {
+        tag(net.minecraft.tags.BlockTags.SMALL_FLOWERS).add(
+                ModBlocks.WILD_PURPLE_ONIONS.get(),
+                ModBlocks.WILD_VARIANTS_POTATOES.get());
+    }
+    protected void registerModTags() {
+        tag(ModTags.WILD_CROPS).add(
+
+                ModBlocks.WILD_VARIANTS_POTATOES.get(),
+                ModBlocks.WILD_PURPLE_ONIONS.get());
     }
 }

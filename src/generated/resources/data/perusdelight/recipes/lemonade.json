@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:sugar"
+    },
+    "S": {
+      "item": "minecraft:potion"
+    },
+    "X": {
+      "item": "perusdelight:lemon_slice"
+    }
+  },
+  "pattern": [
+    " #X",
+    " S "
+  ],
+  "result": {
+    "item": "perusdelight:lemonade"
+  },
+  "show_notification": true
+}

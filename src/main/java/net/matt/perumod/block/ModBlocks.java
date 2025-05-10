@@ -77,16 +77,15 @@ public class ModBlocks {
 
     //wild crops
     public static final RegistryObject<Block> WILD_VARIANTS_POTATOES = BLOCKS.register("wild_variants_potatoes",
-            () -> new WildCropBlock(MobEffects.CONFUSION, 8, Block.Properties.copy(Blocks.TALL_GRASS)));
+            () -> new WildCropBlock(MobEffects.CONFUSION, 8, Block.Properties.copy(Blocks.TALL_GRASS).noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> WILD_PURPLE_ONIONS = BLOCKS.register("wild_purple_onions",
-            () -> new WildCropBlock(MobEffects.DIG_SLOWDOWN, 8, Block.Properties.copy(Blocks.TALL_GRASS)));
+            () -> new WildCropBlock(MobEffects.DIG_SLOWDOWN, 8, Block.Properties.copy(Blocks.TALL_GRASS).noOcclusion().noCollission()));
 
 
 
-
-
-
+    public static final RegistryObject<Block> MORTERO_BLOCK = registerBlock("mortero",
+            () -> new MorteroBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
 
     public static final RegistryObject<Block> LEMON_LOG = registerBlock("lemon_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
@@ -121,6 +120,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> LEMON_LEAVES_WITH_LEMONS = registerBlock("lemon_leaves_with_lemons",
             () -> new CustomLemonLeave(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).noOcclusion()));
 
+    public static final RegistryObject<Block> CALAMINE = registerBlock("calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+
+
     public static final RegistryObject<Block> LEMON_SIGN = BLOCKS.register("lemon_sign",
             () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), ModWoodTypes.LEMON));
     public static final RegistryObject<Block> LEMON_WALL_SIGN = BLOCKS.register("lemon_wall_sign",
@@ -142,6 +146,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> LEMON_TREE_SLAB = registerBlock("lemon_tree_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD)));
+
+
+
 
     public static final RegistryObject<Block> LEMON_TREE_BUTTON = registerBlock("lemon_tree_button",
             () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON).sound(SoundType.WOOD),

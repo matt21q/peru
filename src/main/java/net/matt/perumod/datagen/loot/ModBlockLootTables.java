@@ -19,6 +19,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
@@ -77,30 +78,27 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     this.dropSelf(ModBlocks.LEMON_LOG.get());
     this.dropSelf(ModBlocks.LEMON_WOOD.get());
+    this.dropSelf(ModBlocks.MORTERO_BLOCK.get());
+    this.dropSelf(ModBlocks.CALAMINE.get());
     this.dropSelf(ModBlocks.STRIPPED_LEMON_LOG.get());
     this.dropSelf(ModBlocks.STRIPPED_LEMON_WOOD.get());
+
     this.dropSelf(ModBlocks.LEMON_PLANKS.get());
         this.add(ModBlocks.LEMON_LEAVES_WITH_LEMONS.get(), block ->
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()
                                 .add(LootItem.lootTableItem(ModItems.LEMON.get())
-                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(3, 4)))
-                                )
-                        )
-        );
-        this.add(ModBlocks.WILD_PURPLE_ONIONS.get(), block ->
-                LootTable.lootTable()
-                        .withPool(LootPool.lootPool()
-                                // Este ítem siempre se entrega
-                                .add(LootItem.lootTableItem(ModItems.PURPLE_ONION.get())
                                         .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))
                                 )
-                                // Este ítem tiene una probabilidad de aparecer
-                                .add(LootItem.lootTableItem(Items.PINK_TULIP)
-                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 1)))
-                                )
                         )
         );
+        this.add(ModBlocks.WILD_PURPLE_ONIONS.get(),
+                this.applyExplosionDecay(ModBlocks.WILD_PURPLE_ONIONS.get(), LootTable.lootTable()
+                                .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.PURPLE_ONION.get()))))
+                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 2.0F)))
+                        .withPool(LootPool.lootPool().when(lootitemcondition$builder2).add(LootItem.
+                                lootTableItem((ModItems.PURPLE_ONION.get())))));
+
        this.dropSelf(ModBlocks.FRIED_CUY_BLOCK.get());
         this.add(ModBlocks.LEMON_SIGN.get(), block ->
 

@@ -43,6 +43,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SWEET_POTATO);
         simpleItem(ModItems.PURPLE_ONION);
         simpleItem(ModItems.CEVICHE);
+        simpleItem(ModItems.LEMONADE);
         simpleItem(ModItems.CUY_PERUANO_SPANW_EGG);
         simpleItem(ModItems.CUY_ANDINO_SPANW_EGG);
         simpleItem(ModItems.CUY_INTI_SPANW_EGG);
@@ -57,6 +58,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.PERUVIAN_POTATO);
         simpleItem(ModItems.CANCHAN_POTATO);
         simpleItem(ModItems.BLACK_POTATO);
+        simpleItem(ModItems.LOMO_SALTADO);
+        simpleItem(ModItems.COOKED_CUY);
+        simpleItem(ModItems.RAW_CUY);
         simpleBlockItem(ModBlocks.WILD_VARIANTS_POTATOES);
         simpleBlockItem(ModBlocks.WILD_PURPLE_ONIONS);
         fenceItem(ModBlocks.LEMON_TREE_FENCE, ModBlocks.LEMON_PLANKS);

@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "tag": "perusdelight:lomo_saltado_meat"
+    },
+    {
+      "item": "perusdelight:french_fries"
+    },
+    {
+      "item": "perusdelight:purple_onion"
+    },
+    {
+      "item": "farmersdelight:tomato"
+    },
+    {
+      "item": "perusdelight:salt"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "perusdelight:lomo_saltado"
+  }
+}

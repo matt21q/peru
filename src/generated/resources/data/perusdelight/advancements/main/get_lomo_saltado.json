@@ -1,0 +1,38 @@
+{
+  "parent": "perusdelight:main/root",
+  "criteria": {
+    "lomo_saltado": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "perusdelight:lomo_saltado"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "perusdelight.advancement.get_lomo_saltado.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "perusdelight:lomo_saltado"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "perusdelight.advancement.get_lomo_saltado"
+    }
+  },
+  "requirements": [
+    [
+      "lomo_saltado"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

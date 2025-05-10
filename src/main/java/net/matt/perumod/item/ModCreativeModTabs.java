@@ -42,6 +42,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CUY_INTI_SPANW_EGG.get());
                         pOutput.accept(ModItems.LEMON.get());
                         pOutput.accept(ModItems.LEMON_SLICE.get());
+                        pOutput.accept(ModItems.LEMONADE.get());
                         pOutput.accept(ModBlocks.LEMON_LOG.get());
                         pOutput.accept(ModBlocks.STRIPPED_LEMON_LOG.get());
                         pOutput.accept(ModBlocks.LEMON_WOOD.get());
@@ -62,11 +63,14 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.LEMON_TREE_PRESSURE_PLATE.get());
                         pOutput.accept(ModBlocks.LEMON_TREE_STAIRS.get());
                         pOutput.accept(ModBlocks.LEMON_TREE_FENCE_GATE.get());
+                        pOutput.accept(ModBlocks.CALAMINE.get());
 
                         pOutput.accept(ModItems.THE_CONDOR_PASSES_MUSIC_DISC.get());
                         pOutput.accept(ModBlocks.WILD_VARIANTS_POTATOES.get());
                         pOutput.accept(ModBlocks.WILD_PURPLE_ONIONS.get());
-
+                        pOutput.accept(ModItems.LOMO_SALTADO.get());
+                        pOutput.accept(ModItems.RAW_CUY.get());
+                        pOutput.accept(ModItems.COOKED_CUY.get());
                     })
                     .build());
 

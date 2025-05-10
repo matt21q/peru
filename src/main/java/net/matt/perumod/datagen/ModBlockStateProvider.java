@@ -59,6 +59,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         stairsBlock(((StairBlock) ModBlocks.LEMON_TREE_STAIRS.get()), blockTexture(ModBlocks.LEMON_PLANKS.get()));
         slabBlock(((SlabBlock) ModBlocks.LEMON_TREE_SLAB.get()), blockTexture(ModBlocks.LEMON_PLANKS.get()), blockTexture(ModBlocks.LEMON_PLANKS.get()));
 
+
+
         buttonBlock(((ButtonBlock) ModBlocks.LEMON_TREE_BUTTON.get()), blockTexture(ModBlocks.LEMON_PLANKS.get()));
         pressurePlateBlock(((PressurePlateBlock) ModBlocks.LEMON_TREE_PRESSURE_PLATE.get()), blockTexture(ModBlocks.LEMON_PLANKS.get()));
 
@@ -70,7 +72,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         this.feastBlock((FeastBlock) ModBlocks.FRIED_CUY_BLOCK.get());
 
-
+    simpleBlock(ModBlocks.MORTERO_BLOCK.get(), new ModelFile.UncheckedModelFile(modLoc("block/mortero_block")) {
+    });
 
 
     }

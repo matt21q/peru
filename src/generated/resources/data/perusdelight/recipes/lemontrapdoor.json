@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "S": {
+      "item": "perusdelight:lemon_planks"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "SSS"
+  ],
+  "result": {
+    "item": "perusdelight:lemon_tree_trapdoor"
+  },
+  "show_notification": true
+}
