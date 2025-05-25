@@ -1,6 +1,5 @@
-// 1.20.1	2025-05-09T18:58:11.1547006	Loot Tables
+// 1.20.1	2025-05-25T12:23:06.3828715	Loot Tables
 01605ae2e8f9cbd960d6383099522788ff34115a data/perusdelight/loot_tables/blocks/calamine.json
-3d1ccc760a425df165b7c47b4d73de28311184ec data/perusdelight/loot_tables/blocks/calamineblock.json
 63456e07d226ef962f1fe7e49e33a2e89cc19459 data/perusdelight/loot_tables/blocks/corn_crop.json
 fecef40532f60283e4eb7eea881843df179830a2 data/perusdelight/loot_tables/blocks/fried_cuy_block.json
 fc51247c5a188dee051c77a30687d79a1f1fd873 data/perusdelight/loot_tables/blocks/lemon_hanging_sign.json
@@ -21,6 +20,7 @@ b4c6bafb47b92928ee3810d07960bde45834dc18 data/perusdelight/loot_tables/blocks/le
 353407e24a90f459b2af49e313a16d50055690f0 data/perusdelight/loot_tables/blocks/lemon_wall_hanging_sign.json
 2f766c89279396e682fa304ac3a1ac03178ccb92 data/perusdelight/loot_tables/blocks/lemon_wall_sign.json
 4cef5f95b2bbeda602881269979517ac946f18ab data/perusdelight/loot_tables/blocks/lemon_wood.json
+822dd7cf875d3bff7e124bc32c7d4877ac137da3 data/perusdelight/loot_tables/blocks/mortar_block.json
 3b565c474241bfb1a9cdb95724c50f289d453f32 data/perusdelight/loot_tables/blocks/mortero.json
 5dc28782103142cef32cc80542a74efd846ce82f data/perusdelight/loot_tables/blocks/mud_stove.json
 a7fa015e7f0257d5ba489363ce4b33c359bf04c7 data/perusdelight/loot_tables/blocks/salt_ore.json

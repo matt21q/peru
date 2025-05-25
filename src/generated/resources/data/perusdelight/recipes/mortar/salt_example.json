@@ -1,0 +1,17 @@
+{
+  "type": "perusdelight:mortar",
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "experience": 0.35,
+  "ingredients": [
+    {
+      "item": "perusdelight:salt_ore"
+    }
+  ],
+  "processTime": 100,
+  "result": {
+    "count": 5,
+    "item": "perusdelight:salt"
+  }
+}

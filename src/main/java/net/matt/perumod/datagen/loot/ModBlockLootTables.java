@@ -39,6 +39,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.LEMON_TREE_FENCE.get());
         this.dropSelf(ModBlocks.LEMON_TREE_FENCE_GATE.get());
         this.dropSelf(ModBlocks.LEMON_TREE_SLAB.get());
+        this.dropSelf(ModBlocks.MORTAR_BLOCK.get());
 
 
 
