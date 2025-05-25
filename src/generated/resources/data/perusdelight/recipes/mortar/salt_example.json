@@ -1,7 +1,7 @@
 {
   "type": "perusdelight:mortar",
   "container": {
-    "item": "minecraft:bowl"
+    "item": "minecraft:cobblestone"
   },
   "experience": 0.35,
   "ingredients": [

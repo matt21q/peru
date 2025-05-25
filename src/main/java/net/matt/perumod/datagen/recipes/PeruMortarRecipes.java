@@ -3,6 +3,7 @@ package net.matt.perumod.datagen.recipes;
 import net.matt.perumod.block.ModBlocks;
 import net.matt.perumod.block.custom.mortar.MortarBlockRecipeBuilder;
 import net.matt.perumod.item.ModItems;
+import net.matt.perumod.util.ModTags;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.item.Items;
 
@@ -15,7 +16,7 @@ public class PeruMortarRecipes {
     mortarRecipes(consumer);
   }
   private static void mortarRecipes(Consumer<FinishedRecipe> consumer) {
-    MortarBlockRecipeBuilder.mortarRecipe(ModItems.SALT.get(), 5, MortarBlockRecipeBuilder.FAST_PROCESS, MortarBlockRecipeBuilder.SMALL_EXP, Items.BOWL)
+    MortarBlockRecipeBuilder.mortarRecipe(ModItems.SALT.get(), 5, MortarBlockRecipeBuilder.FAST_PROCESS, MortarBlockRecipeBuilder.SMALL_EXP, Items.COBBLESTONE)
             .addIngredient(ModBlocks.SALT_ORE.get())
             .unlockedByAnyIngredient(ModBlocks.SALT_ORE.get())
             .build(consumer, "perusdelight:mortar/salt_example");
