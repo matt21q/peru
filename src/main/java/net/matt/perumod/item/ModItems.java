@@ -128,6 +128,9 @@ public class ModItems {
     public static final RegistryObject<Item> RAW_CUY = ITEMS.register("raw_cuy",
             () -> new Item(foodItem(Foods.BEEF)));
 
+
+    public static final RegistryObject<Item> MORTAR_BLOCK = ITEMS.register("mortar_block",
+            () -> new BlockItem(ModBlocks.MORTAR_BLOCK.get(), basicItem()));
     public static final RegistryObject<Item> MUD_STOVE;
     static {
 

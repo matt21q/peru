@@ -1,0 +1,29 @@
+{
+  "type": "perusdelight:mortar",
+  "container": {
+    "item": "minecraft:stone"
+  },
+  "ingredients": [
+    {
+      "item": "perusdelight:salt"
+    },
+    {
+      "item": "perusdelight:salt"
+    },
+    {
+      "item": "perusdelight:salt"
+    },
+    {
+      "item": "perusdelight:salt"
+    },
+    {
+      "item": "perusdelight:salt"
+    },
+    {
+      "item": "perusdelight:salt"
+    }
+  ],
+  "result": {
+    "item": "minecraft:mud_bricks"
+  }
+}

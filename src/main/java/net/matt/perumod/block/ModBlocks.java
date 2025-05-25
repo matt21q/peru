@@ -3,6 +3,7 @@ package net.matt.perumod.block;
 import net.matt.perumod.PeruMod;
 import net.matt.perumod.block.custom.*;
 import net.matt.perumod.block.custom.feast.FriedCuyBlock;
+import net.matt.perumod.block.custom.mortar.MortarBlock;
 import net.matt.perumod.item.ModItems;
 import net.matt.perumod.util.ModWoodTypes;
 import net.matt.perumod.worldgen.tree.LemonTreeGrower;
@@ -23,7 +24,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import vectorwing.farmersdelight.common.block.FeastBlock;
 import vectorwing.farmersdelight.common.block.WildCropBlock;
 
 import java.util.function.Supplier;
@@ -32,9 +32,12 @@ import java.util.function.ToIntFunction;
 
 public class ModBlocks {
     public static final RegistryObject<Block> MUD_STOVE;
+
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, PeruMod.MOD_ID);
 
+    public static final RegistryObject<MortarBlock> MORTAR_BLOCK = BLOCKS.register("mortar_block",
+          () -> new MortarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
 
     public static final RegistryObject<Block> SALT_SAND_ORE = registerBlock("salt_sand_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.SAND)
@@ -68,10 +71,6 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> CORN_CROP = BLOCKS.register("corn_crop",
             () -> new CornCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion().noCollission()));
-
-
-
-
 
 
 
