@@ -5,7 +5,6 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectIterator;
 import net.matt.perumod.block.entity.ModBlockEntityTypes;
-import net.matt.perumod.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -29,7 +28,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.capabilities.Capability;
@@ -52,8 +50,8 @@ public class MortarBlockEntity extends SyncedBlockEntity implements MenuProvider
   private final ItemStackHandler inventory = this.createHandler();
   private final LazyOptional<IItemHandler> inputHandler = LazyOptional.of(() -> new MortarItemHandler(this.inventory, Direction.UP));
   private final LazyOptional<IItemHandler> outputHandler = LazyOptional.of(() -> new MortarItemHandler(this.inventory, Direction.DOWN));
-  private int cookTime;
-  private int cookTimeTotal;
+  private int processTime;
+  private int processTimeTotal;
   private ItemStack mealContainerStack;
   private Component customName;
   protected final ContainerData mortarData;
@@ -69,56 +67,11 @@ public class MortarBlockEntity extends SyncedBlockEntity implements MenuProvider
     this.checkNewRecipe = true;
   }
 
-  public static ItemStack getMealFromItem(ItemStack cookingPotStack) {
-    if (!cookingPotStack.is((Item) ModItems.MORTAR_BLOCK.get())) {
-      return ItemStack.EMPTY;
-    } else {
-      CompoundTag compound = cookingPotStack.getTagElement("BlockEntityTag");
-      if (compound != null) {
-        CompoundTag inventoryTag = compound.getCompound("Inventory");
-        if (inventoryTag.contains("Items", 9)) {
-          ItemStackHandler handler = new ItemStackHandler();
-          handler.deserializeNBT(inventoryTag);
-          return handler.getStackInSlot(6);
-        }
-      }
-
-      return ItemStack.EMPTY;
-    }
-  }
-
-//  public static void takeServingFromItem(ItemStack cookingPotStack) {
-//    if (cookingPotStack.is((Item)ModItems.COOKING_POT.get())) {
-//      CompoundTag compound = cookingPotStack.getTagElement("BlockEntityTag");
-//      if (compound != null) {
-//        CompoundTag inventoryTag = compound.getCompound("Inventory");
-//        if (inventoryTag.contains("Items", 9)) {
-//          ItemStackHandler handler = new ItemStackHandler();
-//          handler.deserializeNBT(inventoryTag);
-//          ItemStack newMealStack = handler.getStackInSlot(6);
-//          newMealStack.shrink(1);
-//          compound.remove("Inventory");
-//          compound.put("Inventory", handler.serializeNBT());
-//        }
-//      }
-//
-//    }
-//  }
-//
-//  public static ItemStack getContainerFromItem(ItemStack cookingPotStack) {
-//    if (!cookingPotStack.is((Item)ModItems.COOKING_POT.get())) {
-//      return ItemStack.EMPTY;
-//    } else {
-//      CompoundTag compound = cookingPotStack.getTagElement("BlockEntityTag");
-//      return compound != null ? ItemStack.of(compound.getCompound("Container")) : ItemStack.EMPTY;
-//    }
-//  }
-
   public void load(CompoundTag compound) {
     super.load(compound);
     this.inventory.deserializeNBT(compound.getCompound("Inventory"));
-    this.cookTime = compound.getInt("CookTime");
-    this.cookTimeTotal = compound.getInt("CookTimeTotal");
+    this.processTime = compound.getInt("ProcessTime");
+    this.processTimeTotal = compound.getInt("ProcessTimeTotal");
     this.mealContainerStack = ItemStack.of(compound.getCompound("Container"));
     if (compound.contains("CustomName", 8)) {
       this.customName = Component.Serializer.fromJson(compound.getString("CustomName"));
@@ -129,13 +82,12 @@ public class MortarBlockEntity extends SyncedBlockEntity implements MenuProvider
     for(String key : compoundRecipes.getAllKeys()) {
       this.usedRecipeTracker.put(new ResourceLocation(key), compoundRecipes.getInt(key));
     }
-
   }
 
   public void saveAdditional(CompoundTag compound) {
     super.saveAdditional(compound);
-    compound.putInt("CookTime", this.cookTime);
-    compound.putInt("CookTimeTotal", this.cookTimeTotal);
+    compound.putInt("ProcessTime", this.processTime);
+    compound.putInt("ProcessTimeTotal", this.processTimeTotal);
     compound.put("Container", this.mealContainerStack.serializeNBT());
     if (this.customName != null) {
       compound.putString("CustomName", Component.Serializer.toJson(this.customName));
@@ -154,57 +106,36 @@ public class MortarBlockEntity extends SyncedBlockEntity implements MenuProvider
     return compound;
   }
 
-  public CompoundTag writeMeal(CompoundTag compound) {
-    if (this.getMeal().isEmpty()) {
-      return compound;
-    } else {
-      ItemStackHandler drops = new ItemStackHandler(9);
-
-      for(int i = 0; i < 9; ++i) {
-        drops.setStackInSlot(i, i == 6 ? this.inventory.getStackInSlot(i) : ItemStack.EMPTY);
-      }
-
-      if (this.customName != null) {
-        compound.putString("CustomName", Component.Serializer.toJson(this.customName));
-      }
-
-      compound.put("Container", this.mealContainerStack.serializeNBT());
-      compound.put("Inventory", drops.serializeNBT());
-      return compound;
-    }
-  }
-
-  public static void cookingTick(Level level, BlockPos pos, BlockState state, MortarBlockEntity cookingPot) {
+  public static void processTick(Level level, BlockPos pos, BlockState state, MortarBlockEntity mortar) {
     boolean didInventoryChange = false;
-    if (cookingPot.hasInput()) {
-      Optional<MortarRecipe> recipe = cookingPot.getMatchingRecipe(new RecipeWrapper(cookingPot.inventory));
-      if (recipe.isPresent() && cookingPot.canCook((MortarRecipe)recipe.get())) {
-        didInventoryChange = cookingPot.processCooking((MortarRecipe)recipe.get(), cookingPot);
+    if (mortar.hasInput()) {
+      Optional<MortarRecipe> recipe = mortar.getMatchingRecipe(new RecipeWrapper(mortar.inventory));
+      if (recipe.isPresent() && mortar.canProcess(recipe.get())) {
+        didInventoryChange = mortar.startProcess(recipe.get(), mortar);
       } else {
-        cookingPot.cookTime = 0;
+        mortar.processTime = 0;
       }
-    } else if (cookingPot.cookTime > 0) {
-      cookingPot.cookTime = Mth.clamp(cookingPot.cookTime - 2, 0, cookingPot.cookTimeTotal);
+    } else if (mortar.processTime > 0) {
+      mortar.processTime = Mth.clamp(mortar.processTime - 2, 0, mortar.processTimeTotal);
     }
 
-    ItemStack mealStack = cookingPot.getMeal();
+    ItemStack mealStack = mortar.getMeal();
     if (!mealStack.isEmpty()) {
-      if (!cookingPot.doesMealHaveContainer(mealStack)) {
-        cookingPot.moveMealToOutput();
+      if (!mortar.doesMealHaveContainer(mealStack)) {
+        mortar.moveMealToOutput();
         didInventoryChange = true;
-      } else if (!cookingPot.inventory.getStackInSlot(7).isEmpty()) {
-        cookingPot.useStoredContainersOnMeal();
+      } else if (!mortar.inventory.getStackInSlot(7).isEmpty()) {
+        mortar.useStoredContainersOnMeal();
         didInventoryChange = true;
       }
     }
 
     if (didInventoryChange) {
-      cookingPot.inventoryChanged();
+      mortar.inventoryChanged();
     }
-
   }
 
-  public static void animationTick(Level level, BlockPos pos, BlockState state, MortarBlockEntity cookingPot) {
+  public static void animationTick(Level level, BlockPos pos, BlockState state, MortarBlockEntity mortar) {
       RandomSource random = level.random;
       if (random.nextFloat() < 0.2F) {
         double x = (double)pos.getX() + (double)0.5F + (random.nextDouble() * 0.6 - 0.3);
@@ -244,7 +175,7 @@ public class MortarBlockEntity extends SyncedBlockEntity implements MenuProvider
         if (recipe.isPresent()) {
           ResourceLocation newRecipeID = ((MortarRecipe)recipe.get()).getId();
           if (this.lastRecipeID != null && !this.lastRecipeID.equals(newRecipeID)) {
-            this.cookTime = 0;
+            this.processTime = 0;
           }
 
           this.lastRecipeID = newRecipeID;
@@ -268,11 +199,10 @@ public class MortarBlockEntity extends SyncedBlockEntity implements MenuProvider
         return true;
       }
     }
-
     return false;
   }
 
-  protected boolean canCook(MortarRecipe recipe) {
+  protected boolean canProcess(MortarRecipe recipe) {
     if (this.hasInput()) {
       ItemStack resultStack = recipe.getResultItem(this.level.registryAccess());
       if (resultStack.isEmpty()) {
@@ -294,16 +224,16 @@ public class MortarBlockEntity extends SyncedBlockEntity implements MenuProvider
     }
   }
 
-  private boolean processCooking(MortarRecipe recipe, MortarBlockEntity cookingPot) {
+  private boolean startProcess(MortarRecipe recipe, MortarBlockEntity mortar) {
     if (this.level == null) {
       return false;
     } else {
-      ++this.cookTime;
-      this.cookTimeTotal = recipe.getCookTime();
-      if (this.cookTime < this.cookTimeTotal) {
+      ++this.processTime;
+      this.processTimeTotal = recipe.getProcessTime();
+      if (this.processTime < this.processTimeTotal) {
         return false;
       } else {
-        this.cookTime = 0;
+        this.processTime = 0;
         this.mealContainerStack = recipe.getOutputContainer();
         ItemStack resultStack = recipe.getResultItem(this.level.registryAccess());
         ItemStack storedMealStack = this.inventory.getStackInSlot(6);
@@ -313,7 +243,7 @@ public class MortarBlockEntity extends SyncedBlockEntity implements MenuProvider
           storedMealStack.grow(resultStack.getCount());
         }
 
-        cookingPot.setRecipeUsed(recipe);
+        mortar.setRecipeUsed(recipe);
 
         for(int i = 0; i < 6; ++i) {
           ItemStack slotStack = this.inventory.getStackInSlot(i);
@@ -481,8 +411,8 @@ public class MortarBlockEntity extends SyncedBlockEntity implements MenuProvider
       public int get(int index) {
         int var10000;
         switch (index) {
-          case 0 -> var10000 = MortarBlockEntity.this.cookTime;
-          case 1 -> var10000 = MortarBlockEntity.this.cookTimeTotal;
+          case 0 -> var10000 = MortarBlockEntity.this.processTime;
+          case 1 -> var10000 = MortarBlockEntity.this.processTimeTotal;
           default -> var10000 = 0;
         }
 
@@ -491,8 +421,8 @@ public class MortarBlockEntity extends SyncedBlockEntity implements MenuProvider
 
       public void set(int index, int value) {
         switch (index) {
-          case 0 -> MortarBlockEntity.this.cookTime = value;
-          case 1 -> MortarBlockEntity.this.cookTimeTotal = value;
+          case 0 -> MortarBlockEntity.this.processTime = value;
+          case 1 -> MortarBlockEntity.this.processTimeTotal = value;
         }
 
       }

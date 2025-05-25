@@ -8,9 +8,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class MortarItemHandler implements IItemHandler {
-  private static final int SLOTS_INPUT = 6;
-  private static final int SLOT_CONTAINER_INPUT = 7;
-  private static final int SLOT_MEAL_OUTPUT = 8;
   private final IItemHandler itemHandler;
   private final Direction side;
 

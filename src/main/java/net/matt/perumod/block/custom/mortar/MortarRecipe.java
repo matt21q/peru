@@ -24,16 +24,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MortarRecipe implements Recipe<RecipeWrapper> {
-  public static final int INPUT_SLOTS = 6;
   private final ResourceLocation id;
   private final String group;
   private final NonNullList<Ingredient> inputItems;
   private final ItemStack output;
   private final ItemStack container;
   private final float experience;
-  private final int cookTime;
+  private final int processTime;
 
-  public MortarRecipe(ResourceLocation id, String group, NonNullList<Ingredient> inputItems, ItemStack output, ItemStack container, float experience, int cookTime) {
+  public MortarRecipe(ResourceLocation id, String group, NonNullList<Ingredient> inputItems, ItemStack output, ItemStack container, float experience, int processTime) {
     this.id = id;
     this.group = group;
     this.inputItems = inputItems;
@@ -47,7 +46,7 @@ public class MortarRecipe implements Recipe<RecipeWrapper> {
     }
 
     this.experience = experience;
-    this.cookTime = cookTime;
+    this.processTime = processTime;
   }
 
   public ResourceLocation getId() {
@@ -78,8 +77,8 @@ public class MortarRecipe implements Recipe<RecipeWrapper> {
     return this.experience;
   }
 
-  public int getCookTime() {
-    return this.cookTime;
+  public int getProcessTime() {
+    return this.processTime;
   }
 
   public boolean matches(RecipeWrapper inv, Level level) {
@@ -120,7 +119,7 @@ public class MortarRecipe implements Recipe<RecipeWrapper> {
       MortarRecipe that = (MortarRecipe)o;
       if (Float.compare(that.getExperience(), this.getExperience()) != 0) {
         return false;
-      } else if (this.getCookTime() != that.getCookTime()) {
+      } else if (this.getProcessTime() != that.getProcessTime()) {
         return false;
       } else if (!this.getId().equals(that.getId())) {
         return false;
@@ -129,7 +128,7 @@ public class MortarRecipe implements Recipe<RecipeWrapper> {
       }  else if (!this.inputItems.equals(that.inputItems)) {
         return false;
       } else {
-        return !this.output.equals(that.output) ? false : this.container.equals(that.container);
+        return this.output.equals(that.output) && this.container.equals(that.container);
       }
     } else {
       return false;
@@ -144,7 +143,7 @@ public class MortarRecipe implements Recipe<RecipeWrapper> {
     result = 31 * result + this.output.hashCode();
     result = 31 * result + this.container.hashCode();
     result = 31 * result + (this.getExperience() != 0.0F ? Float.floatToIntBits(this.getExperience()) : 0);
-    result = 31 * result + this.getCookTime();
+    result = 31 * result + this.getProcessTime();
     return result;
   }
 
@@ -153,17 +152,15 @@ public class MortarRecipe implements Recipe<RecipeWrapper> {
       String groupIn = GsonHelper.getAsString(json, "group", "");
       NonNullList<Ingredient> inputItemsIn = readIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
       if (inputItemsIn.isEmpty()) {
-        throw new JsonParseException("No ingredients for cooking recipe");
+        throw new JsonParseException("No ingredients for mortar recipe");
       } else if (inputItemsIn.size() > 6) {
-        throw new JsonParseException("Too many ingredients for cooking recipe! The max is 6");
+        throw new JsonParseException("Too many ingredients for mortar recipe! The max is 6");
       } else {
-        String tabKeyIn = GsonHelper.getAsString(json, "recipe_book_tab", (String)null);
-
         ItemStack outputIn = CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "result"), true);
         ItemStack container = GsonHelper.isValidNode(json, "container") ? CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "container"), true) : ItemStack.EMPTY;
         float experienceIn = GsonHelper.getAsFloat(json, "experience", 0.0F);
-        int cookTimeIn = GsonHelper.getAsInt(json, "cookingtime", 200);
-        return new MortarRecipe(recipeId, groupIn, inputItemsIn, outputIn, container, experienceIn, cookTimeIn);
+        int processTimeIn = GsonHelper.getAsInt(json, "processTime", 200);
+        return new MortarRecipe(recipeId, groupIn, inputItemsIn, outputIn, container, experienceIn, processTimeIn);
       }
     }
 
@@ -193,8 +190,8 @@ public class MortarRecipe implements Recipe<RecipeWrapper> {
       ItemStack outputIn = buffer.readItem();
       ItemStack container = buffer.readItem();
       float experienceIn = buffer.readFloat();
-      int cookTimeIn = buffer.readVarInt();
-      return new MortarRecipe(recipeId, groupIn,  inputItemsIn, outputIn, container, experienceIn, cookTimeIn);
+      int processTimeIn = buffer.readVarInt();
+      return new MortarRecipe(recipeId, groupIn,  inputItemsIn, outputIn, container, experienceIn, processTimeIn);
     }
 
     public void toNetwork(FriendlyByteBuf buffer, MortarRecipe recipe) {
@@ -208,7 +205,7 @@ public class MortarRecipe implements Recipe<RecipeWrapper> {
       buffer.writeItem(recipe.output);
       buffer.writeItem(recipe.container);
       buffer.writeFloat(recipe.experience);
-      buffer.writeVarInt(recipe.cookTime);
+      buffer.writeVarInt(recipe.processTime);
     }
   }
 }

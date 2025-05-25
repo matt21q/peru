@@ -3,29 +3,26 @@ package net.matt.perumod.block.custom.mortar;
 import com.mojang.datafixers.util.Pair;
 import net.matt.perumod.PeruMod;
 import net.matt.perumod.block.ModBlocks;
+import net.matt.perumod.util.ModTags;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.minecraftforge.items.wrapper.RecipeWrapper;
-import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.Objects;
 
 public class MortarMenu extends AbstractContainerMenu {
-  public static final ResourceLocation EMPTY_CONTAINER_SLOT = new ResourceLocation(PeruMod.MOD_ID, "item/empty_container_slot_mortar");
+  public static final ResourceLocation EMPTY_CONTAINER_SLOT = new ResourceLocation(PeruMod.MOD_ID, "item/empty_mortar");
   public final MortarBlockEntity blockEntity;
   public final ItemStackHandler inventory;
-  private final ContainerData cookingPotData;
+  private final ContainerData mortarData;
   private final ContainerLevelAccess canInteractWithCallable;
   protected final Level level;
 
@@ -33,11 +30,11 @@ public class MortarMenu extends AbstractContainerMenu {
     this(windowId, playerInventory, getTileEntity(playerInventory, data), new SimpleContainerData(4));
   }
 
-  public MortarMenu(int windowId, Inventory playerInventory, MortarBlockEntity blockEntity, ContainerData cookingPotDataIn) {
-    super((MenuType) ModMenuTypes.MORTAR.get(), windowId);
+  public MortarMenu(int windowId, Inventory playerInventory, MortarBlockEntity blockEntity, ContainerData mortarDataIn) {
+    super(ModMenuTypes.MORTAR.get(), windowId);
     this.blockEntity = blockEntity;
     this.inventory = blockEntity.getInventory();
-    this.cookingPotData = cookingPotDataIn;
+    this.mortarData = mortarDataIn;
     this.level = playerInventory.player.level();
     this.canInteractWithCallable = ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos());
     int startX = 8;
@@ -52,8 +49,8 @@ public class MortarMenu extends AbstractContainerMenu {
       }
     }
 
-    this.addSlot(new MortarStoneSlot(this.inventory, 6, 124, 26));
-    this.addSlot(new SlotItemHandler(this.inventory, 7, 92, 55) {
+    this.addSlot(new MortarPreviewSlot(this.inventory, 6, 124, 25));
+    this.addSlot(new SlotItemHandler(this.inventory, 7, 48, 55) {
       public Pair<ResourceLocation, ResourceLocation> getNoItemIcon() {
         return Pair.of(InventoryMenu.BLOCK_ATLAS, MortarMenu.EMPTY_CONTAINER_SLOT);
       }
@@ -71,7 +68,7 @@ public class MortarMenu extends AbstractContainerMenu {
       this.addSlot(new Slot(playerInventory, column, startX + column * borderSlotSize, 142));
     }
 
-    this.addDataSlots(cookingPotDataIn);
+    this.addDataSlots(mortarDataIn);
   }
 
   private static MortarBlockEntity getTileEntity(Inventory playerInventory, FriendlyByteBuf data) {
@@ -96,7 +93,7 @@ public class MortarMenu extends AbstractContainerMenu {
     int startPlayerInv = indexOutput + 1;
     int endPlayerInv = startPlayerInv + 36;
     ItemStack slotStackCopy = ItemStack.EMPTY;
-    Slot slot = (Slot)this.slots.get(index);
+    Slot slot = this.slots.get(index);
     if (slot.hasItem()) {
       ItemStack slotStack = slot.getItem();
       slotStackCopy = slotStack.copy();
@@ -109,7 +106,7 @@ public class MortarMenu extends AbstractContainerMenu {
           return ItemStack.EMPTY;
         }
       } else {
-        boolean isValidContainer = slotStack.is(ModTags.SERVING_CONTAINERS) || slotStack.is(this.blockEntity.getContainer().getItem());
+        boolean isValidContainer = slotStack.is(ModTags.Items.MORTAR_FUEL) || slotStack.is(this.blockEntity.getContainer().getItem());
         if (isValidContainer && !this.moveItemStackTo(slotStack, indexContainerInput, indexContainerInput + 1, false)) {
           return ItemStack.EMPTY;
         }
@@ -139,47 +136,9 @@ public class MortarMenu extends AbstractContainerMenu {
     return slotStackCopy;
   }
 
-  public int getCookProgressionScaled() {
-    int i = this.cookingPotData.get(0);
-    int j = this.cookingPotData.get(1);
+  public int getProcessProgressScaled() {
+    int i = this.mortarData.get(0);
+    int j = this.mortarData.get(1);
     return j != 0 && i != 0 ? i * 24 / j : 0;
-  }
-
-  public void fillCraftSlotsStackedContents(StackedContents helper) {
-    for(int i = 0; i < this.inventory.getSlots(); ++i) {
-      helper.accountSimpleStack(this.inventory.getStackInSlot(i));
-    }
-
-  }
-
-  public void clearCraftingContent() {
-    for(int i = 0; i < 6; ++i) {
-      this.inventory.setStackInSlot(i, ItemStack.EMPTY);
-    }
-
-  }
-
-  public boolean recipeMatches(Recipe<? super RecipeWrapper> recipe) {
-    return recipe.matches(new RecipeWrapper(this.inventory), this.level);
-  }
-
-  public int getResultSlotIndex() {
-    return 7;
-  }
-
-  public int getGridWidth() {
-    return 3;
-  }
-
-  public int getGridHeight() {
-    return 2;
-  }
-
-  public int getSize() {
-    return 7;
-  }
-
-  public boolean shouldMoveToInventory(int slot) {
-    return slot < this.getGridWidth() * this.getGridHeight();
   }
 }

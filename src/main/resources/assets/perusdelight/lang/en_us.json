@@ -21,6 +21,7 @@
   "item.perusdelight.ceviche": "Ceviche",
   "item.perusdelight.the_condor_passes_music_disc": "The Condor Passes Music Disc",
   "item.perusdelight.the_condor_passes_music_disc.desc": "Kocoa - The Condor Passes (CC0)",
+  "container.mortar.fuels" : "Needs %s",
 
   "perusdelight.advancement.get_ceviche.desc": "Get one of the most representative meals of Peru!",
   "perusdelight.advancement.get_ceviche":"The national food!",

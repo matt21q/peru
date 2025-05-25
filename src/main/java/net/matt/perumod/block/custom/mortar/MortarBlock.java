@@ -68,6 +68,6 @@ public class MortarBlock extends BaseEntityBlock implements SimpleWaterloggedBlo
     if (level.isClientSide) {
       return createTickerHelper(blockEntity, ModBlockEntityTypes.MORTAR.get(), MortarBlockEntity::animationTick);
     }
-    return createTickerHelper(blockEntity, ModBlockEntityTypes.MORTAR.get(), MortarBlockEntity::cookingTick);
+    return createTickerHelper(blockEntity, ModBlockEntityTypes.MORTAR.get(), MortarBlockEntity::processTick);
   }
 }

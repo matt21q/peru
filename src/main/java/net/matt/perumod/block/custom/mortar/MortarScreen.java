@@ -19,9 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MortarScreen extends AbstractContainerScreen<MortarMenu> {
-  private static final ResourceLocation RECIPE_BUTTON_LOCATION = new ResourceLocation("textures/gui/recipe_button.png");
-  private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(PeruMod.MOD_ID, "textures/gui/cooking_pot.png");
-  private static final Rectangle HEAT_ICON = new Rectangle(47, 55, 17, 15);
+  private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(PeruMod.MOD_ID, "textures/gui/mortar.png");
   private static final Rectangle PROGRESS_ARROW = new Rectangle(89, 25, 0, 17);
 
   private boolean widthTooNarrow;
@@ -61,7 +59,7 @@ public class MortarScreen extends AbstractContainerScreen<MortarMenu> {
         ItemStack containerStack = this.menu.blockEntity.getContainer();
         String container = !containerStack.isEmpty() ? containerStack.getItem().getDescription().getString() : "";
 
-        tooltip.add(TextUtils.getTranslation("container.cooking_pot.served_on", container).withStyle(ChatFormatting.GRAY));
+        tooltip.add(Component.translatable("container.mortar.fuels", container).withStyle(ChatFormatting.GRAY));
 
         gui.renderComponentTooltip(font, tooltip, mouseX, mouseY);
       } else {
@@ -71,9 +69,9 @@ public class MortarScreen extends AbstractContainerScreen<MortarMenu> {
   }
 
   @Override
+
   protected void renderLabels(GuiGraphics gui, int mouseX, int mouseY) {
-    super.renderLabels(gui, mouseX, mouseY);
-    gui.drawString(this.font, this.playerInventoryTitle, 8, (this.imageHeight - 96 + 2), 4210752, false);
+    gui.drawString(this.font, this.title, this.titleLabelX, this.titleLabelY, 0xFFFFFF, false);
   }
 
   @Override
@@ -86,7 +84,7 @@ public class MortarScreen extends AbstractContainerScreen<MortarMenu> {
     gui.blit(BACKGROUND_TEXTURE, this.leftPos, this.topPos, 0, 0, this.imageWidth, this.imageHeight);
 
     // Render progress arrow
-    int l = this.menu.getCookProgressionScaled();
+    int l = this.menu.getProcessProgressScaled();
     gui.blit(BACKGROUND_TEXTURE, this.leftPos + PROGRESS_ARROW.x, this.topPos + PROGRESS_ARROW.y, 176, 15, l + 1, PROGRESS_ARROW.height);
   }
 

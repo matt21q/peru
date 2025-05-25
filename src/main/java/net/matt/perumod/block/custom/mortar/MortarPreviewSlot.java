@@ -5,8 +5,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-public class MortarStoneSlot extends SlotItemHandler {
-  public MortarStoneSlot(IItemHandler inventoryIn, int index, int xPosition, int yPosition) {
+public class MortarPreviewSlot extends SlotItemHandler {
+  public MortarPreviewSlot(IItemHandler inventoryIn, int index, int xPosition, int yPosition) {
     super(inventoryIn, index, xPosition, yPosition);
   }
 
