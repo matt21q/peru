@@ -9,7 +9,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class CalamineBlock extends Block {
-    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 6, 16);
+    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 4, 16);
 
     public CalamineBlock(Properties pProperties) {
         super(pProperties);
