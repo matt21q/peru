@@ -7,6 +7,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
+import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
@@ -15,6 +16,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.*;
@@ -23,6 +25,7 @@ import net.minecraft.world.level.levelgen.feature.foliageplacers.RandomSpreadFol
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.BendingTrunkPlacer;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 
@@ -33,6 +36,8 @@ public class ModConfiguredFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> LEMON_KEY = registerKey("lemon");
 
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WILD_VARIANTS_POTATOES = registerKey("wild_variants_potatoes");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WILD_PURPLE_ONIONS = registerKey("wild_purple_onions");
 
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
@@ -52,6 +57,14 @@ public class ModConfiguredFeatures {
                         .add(ModBlocks.LEMON_LEAVES_WITH_LEMONS.get().defaultBlockState(), 1)), new RandomSpreadFoliagePlacer(ConstantInt.of(3),
                 ConstantInt.of(0), ConstantInt.of(2), 50), new TwoLayersFeatureSize(1, 0, 1)))
                 .dirt(BlockStateProvider.simple(Blocks.ROOTED_DIRT)).forceDirt().build());
+
+        register(context, WILD_PURPLE_ONIONS, Feature.FLOWER, new RandomPatchConfiguration(6, 2, 1, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.WILD_PURPLE_ONIONS.get())))));
+
+        register(context, WILD_VARIANTS_POTATOES, Feature.FLOWER, new RandomPatchConfiguration(8, 1, 1, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
+                new SimpleBlockConfiguration(BlockStateProvider.simple(ModBlocks.WILD_VARIANTS_POTATOES.get())))));
+
+
     }
 
 

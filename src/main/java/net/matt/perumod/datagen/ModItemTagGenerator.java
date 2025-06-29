@@ -8,6 +8,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -28,6 +29,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         this.tag(ModTags.Items.FISH_CEVICHE)
                 .add(ModItems.COD_SLICE.get())
                 .add(ModItems.SALMON_SLICE.get());
+        this.tag(ModTags.Items.LOMO_SALTADO_MEAT)
+                .add(ModItems.COOKED_MUTTON_CHOPS.get())
+                .add(Items.COOKED_BEEF);
         this.tag(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.LEMON_LOG.get().asItem())
                 .add(ModBlocks.LEMON_WOOD.get().asItem())
@@ -37,6 +41,10 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModBlocks.LEMON_PLANKS.get().asItem());
         this.tag(ItemTags.MUSIC_DISCS)
                 .add(net.matt.perumod.item.ModItems.THE_CONDOR_PASSES_MUSIC_DISC.get());
+        this.tag(ModTags.Items.MORTAR_FUEL)
+                .add(Items.COBBLESTONE)
+                .add(Items.COBBLED_DEEPSLATE)
+                .add(Items.BLACKSTONE);
     }
 
 }

@@ -3,6 +3,7 @@ package net.matt.perumod.block;
 import net.matt.perumod.PeruMod;
 import net.matt.perumod.block.custom.*;
 import net.matt.perumod.block.custom.feast.FriedCuyBlock;
+import net.matt.perumod.block.custom.mortar.MortarBlock;
 import net.matt.perumod.item.ModItems;
 import net.matt.perumod.util.ModWoodTypes;
 import net.matt.perumod.worldgen.tree.LemonTreeGrower;
@@ -23,7 +24,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import vectorwing.farmersdelight.common.block.FeastBlock;
 import vectorwing.farmersdelight.common.block.WildCropBlock;
 
 import java.util.function.Supplier;
@@ -32,9 +32,12 @@ import java.util.function.ToIntFunction;
 
 public class ModBlocks {
     public static final RegistryObject<Block> MUD_STOVE;
+
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, PeruMod.MOD_ID);
 
+    public static final RegistryObject<MortarBlock> MORTAR_BLOCK = BLOCKS.register("mortar_block",
+          () -> new MortarBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
 
     public static final RegistryObject<Block> SALT_SAND_ORE = registerBlock("salt_sand_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.SAND)
@@ -71,22 +74,17 @@ public class ModBlocks {
 
 
 
-
-
-
-
     //wild crops
     public static final RegistryObject<Block> WILD_VARIANTS_POTATOES = BLOCKS.register("wild_variants_potatoes",
-            () -> new WildCropBlock(MobEffects.CONFUSION, 8, Block.Properties.copy(Blocks.TALL_GRASS)));
+            () -> new WildCropBlock(MobEffects.CONFUSION, 8, Block.Properties.copy(Blocks.TALL_GRASS).noOcclusion().noCollission()));
 
     public static final RegistryObject<Block> WILD_PURPLE_ONIONS = BLOCKS.register("wild_purple_onions",
-            () -> new WildCropBlock(MobEffects.DIG_SLOWDOWN, 8, Block.Properties.copy(Blocks.TALL_GRASS)));
+            () -> new WildCropBlock(MobEffects.DIG_SLOWDOWN, 8, Block.Properties.copy(Blocks.TALL_GRASS).noOcclusion().noCollission()));
 
 
 
-
-
-
+    public static final RegistryObject<Block> MORTERO_BLOCK = registerBlock("mortero",
+            () -> new MorteroBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
 
     public static final RegistryObject<Block> LEMON_LOG = registerBlock("lemon_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).strength(3f)));
@@ -121,6 +119,51 @@ public class ModBlocks {
     public static final RegistryObject<Block> LEMON_LEAVES_WITH_LEMONS = registerBlock("lemon_leaves_with_lemons",
             () -> new CustomLemonLeave(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES).noOcclusion()));
 
+    public static final RegistryObject<Block> RED_CALAMINE = registerBlock("red_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> BLUE_CALAMINE = registerBlock("blue_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> YELLOW_CALAMINE = registerBlock("yellow_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> ORANGE_CALAMINE = registerBlock("orange_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> GREEN_CALAMINE = registerBlock("green_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> LIME_CALAMINE = registerBlock("lime_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> CYAN_CALAMINE = registerBlock("cyan_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> PURPLE_CALAMINE = registerBlock("purple_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> MAGENTA_CALAMINE = registerBlock("magenta_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> PINK_CALAMINE = registerBlock("pink_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> WHITE_CALAMINE = registerBlock("white_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> BROWN_CALAMINE = registerBlock("brown_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> GRAY_CALAMINE = registerBlock("gray_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> LIGHT_GRAY_CALAMINE = registerBlock("light_gray_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
+    public static final RegistryObject<Block> LIGHT_BLUE_CALAMINE = registerBlock("light_blue_calamine",
+            () -> new CalamineBlock(BlockBehaviour.Properties.copy(Blocks.GLASS).sound(SoundType.COPPER).noOcclusion()));
+
     public static final RegistryObject<Block> LEMON_SIGN = BLOCKS.register("lemon_sign",
             () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), ModWoodTypes.LEMON));
     public static final RegistryObject<Block> LEMON_WALL_SIGN = BLOCKS.register("lemon_wall_sign",
@@ -142,6 +185,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> LEMON_TREE_SLAB = registerBlock("lemon_tree_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).sound(SoundType.WOOD)));
+
+
+
 
     public static final RegistryObject<Block> LEMON_TREE_BUTTON = registerBlock("lemon_tree_button",
             () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON).sound(SoundType.WOOD),

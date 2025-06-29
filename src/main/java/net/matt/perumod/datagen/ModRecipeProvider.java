@@ -1,9 +1,6 @@
 package net.matt.perumod.datagen;
 
-import net.matt.perumod.datagen.recipes.PeruCookingRecipes;
-import net.matt.perumod.datagen.recipes.PeruCraftingRecipes;
-import net.matt.perumod.datagen.recipes.PeruCuttingRecipes;
-import net.matt.perumod.datagen.recipes.PeruSmeltingRecipes;
+import net.matt.perumod.datagen.recipes.*;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 
@@ -22,6 +19,7 @@ public class ModRecipeProvider extends RecipeProvider{
         PeruCraftingRecipes.register(consumer);
         PeruCuttingRecipes.register(consumer);
         PeruSmeltingRecipes.register(consumer);
+        PeruMortarRecipes.register(consumer);
     }
 
 }

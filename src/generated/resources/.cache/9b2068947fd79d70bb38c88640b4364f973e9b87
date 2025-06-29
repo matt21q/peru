@@ -1,4 +1,4 @@
-// 1.20.1	2025-03-04T11:34:21.2447575	Block States: perusdelight
+// 1.20.1	2025-05-25T11:38:26.2107486	Block States: perusdelight
 fa09de6f9eae96e23b79affe30de7d866f3024cd assets/perusdelight/blockstates/corn_crop.json
 19af6788f4b417a87120b08b39e7761434d65d2b assets/perusdelight/blockstates/fried_cuy_block.json
 62ad8adb816cc3b2b404bfd2f63712ff099e0f8e assets/perusdelight/blockstates/lemon_hanging_sign.json
@@ -18,6 +18,7 @@ c2a889f241b3e6c4ad8ddf2c7e0974b966db3c1d assets/perusdelight/blockstates/lemon_t
 62ad8adb816cc3b2b404bfd2f63712ff099e0f8e assets/perusdelight/blockstates/lemon_wall_hanging_sign.json
 bc8e80e906ab69d7b5707840d182eb49f625f19d assets/perusdelight/blockstates/lemon_wall_sign.json
 a024ca7ad33b13b362947bfedda10d78e137e4c1 assets/perusdelight/blockstates/lemon_wood.json
+14c785b947058b05e666527a6ce7dcc2f7729676 assets/perusdelight/blockstates/mortero.json
 774dc9dcb6640bcda34d5ff31de03fc7c9d2e58d assets/perusdelight/blockstates/salt_ore.json
 458f43fe561525104d4bfcb719f909a501bf9a34 assets/perusdelight/blockstates/salt_sand_ore.json
 8fab72b89ab950ab3bb63229b77e306e2b745a8a assets/perusdelight/blockstates/stripped_lemon_log.json

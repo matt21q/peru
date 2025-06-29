@@ -2,6 +2,7 @@ package net.matt.perumod.block.entity;
 
 import net.matt.perumod.PeruMod;
 import net.matt.perumod.block.ModBlocks;
+import net.matt.perumod.block.custom.mortar.MortarBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -23,4 +24,7 @@ public class ModBlockEntityTypes  {
             TILES.register("mod_hanging_sign", () ->
                     BlockEntityType.Builder.of(ModHangingSignBlockEntity::new,
                             ModBlocks.LEMON_HANGING_SIGN.get(), ModBlocks.LEMON_WALL_HANGING_SIGN.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<MortarBlockEntity>> MORTAR = TILES.register("mortar",
+            () -> BlockEntityType.Builder.of(MortarBlockEntity::new, ModBlocks.MORTAR_BLOCK.get()).build(null));
 }

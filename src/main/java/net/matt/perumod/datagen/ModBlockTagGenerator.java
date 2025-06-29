@@ -55,4 +55,15 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
        tag(ModTags.MINEABLE_WITH_KNIFE)
                .add(ModBlocks.FRIED_CUY_BLOCK.get());
     }
+    protected void registerMinecraftTags() {
+        tag(net.minecraft.tags.BlockTags.SMALL_FLOWERS).add(
+                ModBlocks.WILD_PURPLE_ONIONS.get(),
+                ModBlocks.WILD_VARIANTS_POTATOES.get());
+    }
+    protected void registerModTags() {
+        tag(ModTags.WILD_CROPS).add(
+
+                ModBlocks.WILD_VARIANTS_POTATOES.get(),
+                ModBlocks.WILD_PURPLE_ONIONS.get());
+    }
 }

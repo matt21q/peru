@@ -21,10 +21,15 @@
   "item.perusdelight.ceviche": "Ceviche",
   "item.perusdelight.the_condor_passes_music_disc": "The Condor Passes Music Disc",
   "item.perusdelight.the_condor_passes_music_disc.desc": "Kocoa - The Condor Passes (CC0)",
+  "container.mortar.fuels" : "Needs %s",
+
   "perusdelight.advancement.get_ceviche.desc": "Get one of the most representative meals of Peru!",
   "perusdelight.advancement.get_ceviche":"The national food!",
+  "perusdelight.advancement.get_lomo_saltado.desc": "Get the delicious lomo saltado, don't forget the creams! :D",
+  "perusdelight.advancement.get_lomo_saltado":"Ese lomo está bravazo!",
   "perusdelight.advancement.root": "Peru's Delight",
   "perusdelight.advancement.root.desc": "Peruvian gastronomy at its best!!",
+
   "item.perusdelight.cuy_peruano_spawn_egg": "Peruvian Cuy Spawn Egg",
   "item.perusdelight.cuy_andino_spawn_egg": "Andean Cuy Spawn Egg",
   "item.perusdelight.cuy_inti_spawn_egg": "Inti Cuy Spawn Egg",
@@ -34,7 +39,15 @@
   "item.perusdelight.peruvian_potato": "Peruvian Potato",
   "item.perusdelight.canchan_potato": "Canchan Potato",
   "item.perusdelight.black_potato": "Black Potato",
+  "item.perusdelight.raw_cuy": "Raw Cuy",
+  "item.perusdelight.cooked_cuy":"Cooked Cuy",
+  "item.perusdelight.lomo_saltado": "Lomo Saltado",
+  "item.perusdelight.lemonade": "Lemonade",
+
   "effect.perusdelight.amphibian": "Amphibian",
+  "effect.perusdelight.altitude": "Altitude Sickness",
+
+  "block.perusdelight.calamine": "Calamine",
   "block.perusdelight.lemon_log":"Lemon Log",
   "block.perusdelight.stripped_lemon_log":"Stripped Lemon Log",
   "block.perusdelight.lemon_wood": "Lemon Wood",
@@ -44,6 +57,7 @@
   "block.perusdelight.lemon_hanging_sign": "Lemon Hanging Sign",
   "block.perusdelight.lemon_leaves_with_lemons": "Lemon Leaves With Lemons",
   "block.perusdelight.lemon_tree_trapdoor":"Lemon Tree Trapdoor",
+  "block.perusdelight.mortero_block": "Mortero",
 
   "block.perusdelight.lemon_tree_door": "Lemon Tree Door",
   "block.perusdelight.lemon_tree_slab": "Lemon Tree Slab",
@@ -53,6 +67,21 @@
   "block.perusdelight.lemon_tree_pressure_plate":"Lemon Tree Pressure Plate",
   "block.perusdelight.lemon_tree_stairs": "Lemon Tree Stairs",
   "block.perusdelight.wild_variants_potatoes": "Wild Variants Potatoes",
-  "block.perusdelight.fried_cuy_block": "TEMPLATE"
-
+  "block.perusdelight.wild_purple_onions": "Wild Purple Onions",
+  "block.perusdelight.fried_cuy_block": "TEMPLATE",
+  "block.perusdelight.red_calamine": "Red Calamine",
+  "block.perusdelight.blue_calamine": "Blue Calamine",
+  "block.perusdelight.brown_calamine": "Brown Calamine",
+  "block.perusdelight.cyan_calamine": "Cyan Calamine",
+  "block.perusdelight.gray_calamine": "Gray Calamine",
+  "block.perusdelight.green_calamine": "Green Calamine",
+  "block.perusdelight.light_blue_calamine": "Light Blue Calamine",
+  "block.perusdelight.light_gray_calamine": "Light Gray Calamine",
+  "block.perusdelight.lime_calamine": "Lime Calamine",
+  "block.perusdelight.magenta_calamine": "Magenta Calamine",
+  "block.perusdelight.orange_calamine": "Oange Calamine",
+  "block.perusdelight.pink_calamine": "Pink Calamine",
+  "block.perusdelight.purple_calamine": "Purple Calamine",
+  "block.perusdelight.white_calamine": "White Calamine",
+  "block.perusdelight.yellow_calamine": "Yellow Calamine"
 }

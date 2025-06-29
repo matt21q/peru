@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "S": {
+      "item": "perusdelight:lemon_planks"
+    },
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "SXS",
+    "SXS"
+  ],
+  "result": {
+    "item": "perusdelight:lemon_tree_fence"
+  },
+  "show_notification": true
+}

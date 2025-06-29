@@ -1,38 +1,57 @@
 {
   "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    },
+    {
+      "add": false,
+      "count": {
+        "type": "minecraft:uniform",
+        "max": 2.0,
+        "min": 1.0
+      },
+      "function": "minecraft:set_count"
+    }
+  ],
   "pools": [
     {
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
           "name": "perusdelight:purple_onion"
-        },
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:any_of",
+          "terms": [
+            {
+              "block": "perusdelight:corn_crop",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "7"
+              }
+            },
+            {
+              "block": "perusdelight:corn_crop",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "age": "6"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 1.0
-              },
-              "function": "minecraft:set_count"
-            }
-          ],
-          "name": "minecraft:pink_tulip"
+          "name": "perusdelight:purple_onion"
         }
       ],
       "rolls": 1.0

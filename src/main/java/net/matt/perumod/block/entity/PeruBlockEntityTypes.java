@@ -2,6 +2,7 @@ package net.matt.perumod.block.entity;
 
 import net.matt.perumod.PeruMod;
 import net.matt.perumod.block.ModBlocks;
+import net.matt.perumod.block.custom.mortar.MortarBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -12,4 +13,5 @@ public class PeruBlockEntityTypes {
 
     public static final RegistryObject<BlockEntityType<MudStoveBlockEntity>> MUD_STOVE = TILES.register("mud_stove",
             () -> BlockEntityType.Builder.of(MudStoveBlockEntity::new, ModBlocks.MUD_STOVE.get()).build(null));
+
 }

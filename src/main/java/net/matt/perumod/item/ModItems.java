@@ -8,6 +8,8 @@ import net.matt.perumod.util.Foodvalue;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -16,9 +18,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.FoodValues;
 import vectorwing.farmersdelight.common.item.ConsumableItem;
+import vectorwing.farmersdelight.common.item.DrinkableItem;
 
-import static vectorwing.farmersdelight.common.registry.ModItems.basicItem;
-import static vectorwing.farmersdelight.common.registry.ModItems.foodItem;
+import static vectorwing.farmersdelight.common.registry.ModItems.*;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -29,6 +31,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> LEMON = ITEMS.register("lemon",
             () -> new Item(foodItem(FoodValues.TOMATO)));
+
+    public static final RegistryObject<Item> LEMONADE = ITEMS.register("lemonade",
+            () -> new DrinkableItem(drinkItem().food(Foodvalue.LEMONADE), true, false));
 
     public static final RegistryObject<Item> LEMON_SLICE = ITEMS.register("lemon_slice",
             () -> new Item(new Item.Properties()));
@@ -65,6 +70,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> CEVICHE = ITEMS.register("ceviche",
             () -> new Item(foodItem(Foodvalue.CEVICHE)));
+
+    public static final RegistryObject<Item> LOMO_SALTADO = ITEMS.register("lomo_saltado",
+            () -> new Item(foodItem(Foodvalue.LOMO_SALTADO)));
 
     public static final RegistryObject<Item> CUY_PERUANO_SPANW_EGG = ITEMS.register("cuy_peruano_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.CUY_PERUANO, 0xf8f9f9 , 0xf8f9f9 , new Item.Properties()));
@@ -114,6 +122,15 @@ public class ModItems {
     public static final RegistryObject<Item> FRIED_CUY = ITEMS.register("fried_cuy",
             () -> new ConsumableItem(bowlFoodItem(FoodValues.ROAST_CHICKEN), true));
 
+    public static final RegistryObject<Item> COOKED_CUY = ITEMS.register("cooked_cuy",
+            () -> new Item(foodItem(Foods.COOKED_BEEF)));
+
+    public static final RegistryObject<Item> RAW_CUY = ITEMS.register("raw_cuy",
+            () -> new Item(foodItem(Foods.BEEF)));
+
+
+    public static final RegistryObject<Item> MORTAR_BLOCK = ITEMS.register("mortar_block",
+            () -> new BlockItem(ModBlocks.MORTAR_BLOCK.get(), basicItem()));
     public static final RegistryObject<Item> MUD_STOVE;
     static {
 

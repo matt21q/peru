@@ -19,7 +19,7 @@ public class PeruSmeltingRecipes {
     public static void register(Consumer<FinishedRecipe> consumer) {
         foodSmeltingRecipes("sausage", Ingredient.of(ModItems.SAUSAGE.get()), ModItems.COOKED_SAUSAGE.get(), 0.35F, consumer);
         foodSmeltingRecipes("sweet_potato", Ingredient.of(ModItems.SWEET_POTATO.get()), ModItems.BAKED_SWEET_POTATO.get(), 0.35F, consumer);
-
+        foodSmeltingRecipes("cuy", Ingredient.of(ModItems.RAW_CUY.get()), ModItems.COOKED_CUY.get(), 0.35F, consumer);
     }
 
     private static void foodSmeltingRecipes(String name, Ingredient ingredient, ItemLike result, float experience, Consumer<FinishedRecipe> consumer) {

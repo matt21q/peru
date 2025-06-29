@@ -38,5 +38,19 @@ public class PeruCookingRecipes {
                 .unlockedByAnyIngredient(ModItems.LEMON.get(), ModItems.PURPLE_ONION.get(), ModItems.BAKED_SWEET_POTATO.get(), ModItems.CORN_KERNELS.get())
                 .setRecipeBookTab(CookingPotRecipeBookTab.MISC)
                 .build(consumer, "perusdelight:cooking/ceviche");
+
+
+
+        CookingPotRecipeBuilder.cookingPotRecipe(ModItems.LOMO_SALTADO.get(), 1, NORMAL_COOKING, SMALL_EXP, Items.BOWL)
+                .addIngredient(ModTags.Items.LOMO_SALTADO_MEAT)
+                .addIngredient(ModItems.FRENCH_FRIES.get())
+                .addIngredient(ModItems.PURPLE_ONION.get())
+                .addIngredient(vectorwing.farmersdelight.common.registry.ModItems.TOMATO.get())
+                .addIngredient(ModItems.SALT.get())
+                .unlockedByAnyIngredient(vectorwing.farmersdelight.common.registry.ModItems.TOMATO.get(), ModItems.PURPLE_ONION.get(), ModItems.FRENCH_FRIES.get(), vectorwing.farmersdelight.common.registry.ModItems.COOKED_MUTTON_CHOPS.get())
+                .setRecipeBookTab(CookingPotRecipeBookTab.MEALS)
+                .build(consumer, "perusdelight:cooking/lomo_saltado");
+
+
     }
 }

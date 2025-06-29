@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_forest",
+  "features": "perusdelight:wild_variants_potatoes_placement",
+  "step": "vegetal_decoration"
+}

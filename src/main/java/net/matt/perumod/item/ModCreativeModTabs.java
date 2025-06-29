@@ -21,6 +21,7 @@ public class ModCreativeModTabs {
 
                         pOutput.accept(ModItems.SALT.get());
                         pOutput.accept(ModBlocks.MUD_STOVE.get());
+                        pOutput.accept(ModBlocks.MORTAR_BLOCK.get());
                         pOutput.accept(ModBlocks.SALT_ORE.get());
                         pOutput.accept(ModBlocks.SALT_SAND_ORE.get());
                         pOutput.accept(ModItems.CORN.get());
@@ -42,6 +43,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.CUY_INTI_SPANW_EGG.get());
                         pOutput.accept(ModItems.LEMON.get());
                         pOutput.accept(ModItems.LEMON_SLICE.get());
+                        pOutput.accept(ModItems.LEMONADE.get());
                         pOutput.accept(ModBlocks.LEMON_LOG.get());
                         pOutput.accept(ModBlocks.STRIPPED_LEMON_LOG.get());
                         pOutput.accept(ModBlocks.LEMON_WOOD.get());
@@ -63,10 +65,28 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.LEMON_TREE_STAIRS.get());
                         pOutput.accept(ModBlocks.LEMON_TREE_FENCE_GATE.get());
 
+                        pOutput.accept(ModBlocks.RED_CALAMINE.get());
+                        pOutput.accept(ModBlocks.BLUE_CALAMINE.get());
+                        pOutput.accept(ModBlocks.YELLOW_CALAMINE.get());
+                        pOutput.accept(ModBlocks.GREEN_CALAMINE.get());
+                        pOutput.accept(ModBlocks.LIME_CALAMINE.get());
+                        pOutput.accept(ModBlocks.LIGHT_BLUE_CALAMINE.get());
+                        pOutput.accept(ModBlocks.CYAN_CALAMINE.get());
+                        pOutput.accept(ModBlocks.ORANGE_CALAMINE.get());
+                        pOutput.accept(ModBlocks.PURPLE_CALAMINE.get());
+                        pOutput.accept(ModBlocks.MAGENTA_CALAMINE.get());
+                        pOutput.accept(ModBlocks.PINK_CALAMINE.get());
+                        pOutput.accept(ModBlocks.WHITE_CALAMINE.get());
+                        pOutput.accept(ModBlocks.BROWN_CALAMINE.get());
+                        pOutput.accept(ModBlocks.GRAY_CALAMINE.get());
+                        pOutput.accept(ModBlocks.LIGHT_GRAY_CALAMINE.get());
+
                         pOutput.accept(ModItems.THE_CONDOR_PASSES_MUSIC_DISC.get());
                         pOutput.accept(ModBlocks.WILD_VARIANTS_POTATOES.get());
                         pOutput.accept(ModBlocks.WILD_PURPLE_ONIONS.get());
-
+                        pOutput.accept(ModItems.LOMO_SALTADO.get());
+                        pOutput.accept(ModItems.RAW_CUY.get());
+                        pOutput.accept(ModItems.COOKED_CUY.get());
                     })
                     .build());
 

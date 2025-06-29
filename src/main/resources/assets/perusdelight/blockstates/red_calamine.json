@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "perusdelight:block/red_calamine",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "perusdelight:block/red_calamine",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "perusdelight:block/red_calamine",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "perusdelight:block/red_calamine",
+      "y": 90
+    }
+  }
+}

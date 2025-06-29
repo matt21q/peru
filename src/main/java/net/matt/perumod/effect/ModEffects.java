@@ -16,6 +16,8 @@ public class ModEffects {
     public static final RegistryObject<MobEffect> AMPHIBIAN_EFFECT = MOB_EFFECTS.register("amphibian",
             () -> new AmphibianEffect(MobEffectCategory.BENEFICIAL, 0x1fb192)); // Color verde
 
+    public static final RegistryObject<MobEffect> ALTITUDE_SICKNESS = MOB_EFFECTS.register("altitude",
+            () -> new AltitudeSickness(MobEffectCategory.HARMFUL, 0x7F7F7F)); // Color verde
 
     public static void register(IEventBus eventBus) {
         MOB_EFFECTS.register(eventBus);
