@@ -21,6 +21,7 @@
   "item.perusdelight.ceviche": "Ceviche",
   "item.perusdelight.the_condor_passes_music_disc": "The Condor Passes Music Disc",
   "item.perusdelight.the_condor_passes_music_disc.desc": "Kocoa - The Condor Passes (CC0)",
+  "container.mortar.fuels" : "Needs %s",
 
   "perusdelight.advancement.get_ceviche.desc": "Get one of the most representative meals of Peru!",
   "perusdelight.advancement.get_ceviche":"The national food!",
@@ -67,6 +68,20 @@
   "block.perusdelight.lemon_tree_stairs": "Lemon Tree Stairs",
   "block.perusdelight.wild_variants_potatoes": "Wild Variants Potatoes",
   "block.perusdelight.wild_purple_onions": "Wild Purple Onions",
-  "block.perusdelight.fried_cuy_block": "TEMPLATE"
-
+  "block.perusdelight.fried_cuy_block": "TEMPLATE",
+  "block.perusdelight.red_calamine": "Red Calamine",
+  "block.perusdelight.blue_calamine": "Blue Calamine",
+  "block.perusdelight.brown_calamine": "Brown Calamine",
+  "block.perusdelight.cyan_calamine": "Cyan Calamine",
+  "block.perusdelight.gray_calamine": "Gray Calamine",
+  "block.perusdelight.green_calamine": "Green Calamine",
+  "block.perusdelight.light_blue_calamine": "Light Blue Calamine",
+  "block.perusdelight.light_gray_calamine": "Light Gray Calamine",
+  "block.perusdelight.lime_calamine": "Lime Calamine",
+  "block.perusdelight.magenta_calamine": "Magenta Calamine",
+  "block.perusdelight.orange_calamine": "Oange Calamine",
+  "block.perusdelight.pink_calamine": "Pink Calamine",
+  "block.perusdelight.purple_calamine": "Purple Calamine",
+  "block.perusdelight.white_calamine": "White Calamine",
+  "block.perusdelight.yellow_calamine": "Yellow Calamine"
 }

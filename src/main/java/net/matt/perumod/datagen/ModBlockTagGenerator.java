@@ -24,8 +24,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider pProvider) {
         this.registerFarmersDelightTags();
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.SALT_ORE.get())
-                .add(ModBlocks.CALAMINE.get());
+                .add(ModBlocks.SALT_ORE.get());
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(ModBlocks.SALT_SAND_ORE.get());
         this.tag(BlockTags.MINEABLE_WITH_AXE)

@@ -1,6 +1,4 @@
-// 1.20.1	2025-05-09T18:58:11.1517092	Block States: perusdelight
-6b69df7570bef871d3a3c1c800506249723002bc assets/perusdelight/blockstates/calamine.json
-c8116080451026cc392185efe384216bbf308d97 assets/perusdelight/blockstates/calamineblock.json
+// 1.20.1	2025-05-25T11:38:26.2107486	Block States: perusdelight
 fa09de6f9eae96e23b79affe30de7d866f3024cd assets/perusdelight/blockstates/corn_crop.json
 19af6788f4b417a87120b08b39e7761434d65d2b assets/perusdelight/blockstates/fried_cuy_block.json
 62ad8adb816cc3b2b404bfd2f63712ff099e0f8e assets/perusdelight/blockstates/lemon_hanging_sign.json
@@ -27,9 +25,6 @@ a024ca7ad33b13b362947bfedda10d78e137e4c1 assets/perusdelight/blockstates/lemon_w
 f2313ab627b8669b5e116bd1c2b26ff529588e42 assets/perusdelight/blockstates/stripped_lemon_wood.json
 c0946ec26954de0393e634314bff4e08aee0b6a4 assets/perusdelight/blockstates/wild_purple_onions.json
 02e70c617da133f8ee5074f625ea30125d72441c assets/perusdelight/blockstates/wild_variants_potatoes.json
-fddbe676a27452fecd4bf661078d90f903f71179 assets/perusdelight/models/block/calamine.json
-d3eeed6ab587c56046d3c13a5ceebd538cc7352c assets/perusdelight/models/block/calamineblock.json
-32e2af037be41b6d5a65e0c83bf244911f647e84 assets/perusdelight/models/block/calamine_top.json
 dd7cda4be01ad522230f99d72fa42cd72fe2b269 assets/perusdelight/models/block/corn_crop0.json
 ccc40005a73b874a4dd41d84fd30cc36b81238cf assets/perusdelight/models/block/corn_crop1.json
 4d9133e57facddf4f6a1eb4e4efc136a504735ea assets/perusdelight/models/block/corn_crop2.json
@@ -74,7 +69,6 @@ d3793be75c5cf0b3344344fc02db5e517f8589be assets/perusdelight/models/block/lemon_
 7dc582f3823712425e27cfac8c58e468376d1185 assets/perusdelight/models/block/stripped_lemon_wood_horizontal.json
 552a63472db755cd26baaf9c50aa9373b6931419 assets/perusdelight/models/block/wild_purple_onions.json
 9b7579a44f14b38893f3121e9581f6c566b9559c assets/perusdelight/models/block/wild_variants_potatoes.json
-1cc76dc92127bc58433f7af3ef0534cb7219e948 assets/perusdelight/models/item/calamineblock.json
 53cf5e35aa08ce1d8f650323ac9102613306bad6 assets/perusdelight/models/item/lemon_leaves.json
 3422e5f6e1a11d141d9f7bbecde09d57477061cf assets/perusdelight/models/item/lemon_leaves_with_lemons.json
 5afb357420ec9c8d977336aa5c98e86e8b0c9631 assets/perusdelight/models/item/lemon_log.json

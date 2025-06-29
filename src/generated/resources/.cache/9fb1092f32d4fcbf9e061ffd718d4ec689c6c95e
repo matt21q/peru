@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-09T17:58:59.191814	Recipes
+// 1.20.1	2025-05-25T11:38:26.2127745	Recipes
 892fa20d0321fecdc92f482761b92855bf2d8b44 data/minecraft/recipes/food_serving.json
 5dff6d193398203342c5db2f48d453265b7350a3 data/perusdelight/advancements/recipes/building_blocks/lemondoor.json
 6998f765ca39ad4dd269d61565d3cfe1ef1ec244 data/perusdelight/advancements/recipes/building_blocks/lemonfence.json
@@ -19,6 +19,7 @@ b6f94ed249af1a6dcaea9286122a5b854e430978 data/perusdelight/advancements/recipes/
 f3ad368888607d93c0042391f559358db3911f9d data/perusdelight/advancements/recipes/misc/lemon_planks.json
 398812e0252a1cfd88f3b6471615008a257f0ff6 data/perusdelight/advancements/recipes/misc/lemon_tree_button.json
 43457f9ab8ff8f96d59f86a55a4c3301a1b64d09 data/perusdelight/advancements/recipes/misc/salt_sand.json
+af219e723e423ca41e336775e83ae56c27d2403a data/perusdelight/advancements/recipes/mortar/salt_example.json
 9fb6f4c1b0ba45cf0cbb89b0ba70a54c069be800 data/perusdelight/recipes/cooking/ceviche.json
 025ac230c9c190f2116d20f268cfe2115f4df482 data/perusdelight/recipes/cooking/lomo_saltado.json
 fd8cafd4f7b88c34b0d1cb703dddda0da46a0bcc data/perusdelight/recipes/cooking/salchipapa.json
@@ -34,6 +35,7 @@ feda1c1fa89fbc210c09df13f27c410e8b6c28d9 data/perusdelight/recipes/lemonfence.js
 219efd00c06a84e6ad97edd446773f295bb04c1a data/perusdelight/recipes/lemontrapdoor.json
 f7f0ed2ee007851068021f282069f940b8444e93 data/perusdelight/recipes/lemon_planks.json
 12dc224b52570512cd1844d3e341ff589edf352a data/perusdelight/recipes/lemon_tree_button.json
+52a533bb62549285f3154d4e3c95510cccaf5e7d data/perusdelight/recipes/mortar/salt_example.json
 789e6a2c88f781049cc15342d070fd68043379b8 data/perusdelight/recipes/salt_sand.json
 0bc6bca8891c6e3d04677612f29f36b4cf752060 data/perusdelight/recipes/sausage_cooking.json
 b747793ca04a09382d7372b5e7cf97df01ad472a data/perusdelight/recipes/sausage_from_campfire_cooking.json

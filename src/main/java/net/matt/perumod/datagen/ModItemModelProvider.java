@@ -71,6 +71,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         evenSimplerBlockItem(ModBlocks.LEMON_TREE_FENCE_GATE);
 
 
+
         Set<Item> spriteBlockItems = Sets.newHashSet(
                 ModItems.FRIED_CUY_BLOCK.get()
         );

@@ -72,6 +72,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         this.feastBlock((FeastBlock) ModBlocks.FRIED_CUY_BLOCK.get());
 
+
+
+
+
+
+
     simpleBlock(ModBlocks.MORTERO_BLOCK.get(), new ModelFile.UncheckedModelFile(modLoc("block/mortero_block")) {
     });
 

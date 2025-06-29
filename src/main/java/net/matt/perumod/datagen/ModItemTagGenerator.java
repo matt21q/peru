@@ -41,6 +41,10 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModBlocks.LEMON_PLANKS.get().asItem());
         this.tag(ItemTags.MUSIC_DISCS)
                 .add(net.matt.perumod.item.ModItems.THE_CONDOR_PASSES_MUSIC_DISC.get());
+        this.tag(ModTags.Items.MORTAR_FUEL)
+                .add(Items.COBBLESTONE)
+                .add(Items.COBBLED_DEEPSLATE)
+                .add(Items.BLACKSTONE);
     }
 
 }
