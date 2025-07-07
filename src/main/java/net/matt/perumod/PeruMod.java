@@ -17,6 +17,7 @@ import net.matt.perumod.event.ModEventSubscriber;
 import net.matt.perumod.item.ModCreativeModTabs;
 import net.matt.perumod.item.ModItems;
 import net.matt.perumod.sound.ModSounds;
+import net.matt.perumod.worldgen.biome.ModTerrablender;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -70,7 +71,7 @@ public class PeruMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        event.enqueueWork(ModTerrablender::registerBiomes);
     }
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {

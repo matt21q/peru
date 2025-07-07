@@ -29,3 +29,9 @@ description='''${mod_description}'''
     versionRange="[1.20.1-1.2.3,)"
     ordering="AFTER"
     side="BOTH"
+[[dependencies.${mod_id}]]
+    modId="terrablender"
+    mandatory=true
+    versionRange="${terrablender_version_range}"
+    ordering="NONE"
+    side="BOTH"
